@@ -1,0 +1,19 @@
+/* Estilos Celular */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body { 
+ background:black; 
+}
+
+canvas {
+  display: block;
+}
+
+
+/* Estilos para tablets/escritorio */
+@media (min-width: 450px) {
+  body { background: red; }
+}
