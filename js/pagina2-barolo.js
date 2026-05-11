@@ -36,6 +36,8 @@ function setup() {
   
     video = createVideo("videos/babel5.mp4");
     video.size(width, height);
+    video.volume(0);
+    video.elt.setAttribute('playsinline', '');
     video.loop();
     video.hide();
 
