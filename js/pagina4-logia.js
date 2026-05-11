@@ -59,7 +59,7 @@ function draw() {
   
    imagen1Funcion ();
 
-   cuadradosTexto ();
+   //cuadradosTexto ();
 
     push ();
         noFill ();
