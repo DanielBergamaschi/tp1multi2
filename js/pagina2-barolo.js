@@ -19,8 +19,9 @@ function preload() {
 
 function setup() {
   
-  createCanvas(360, 640);//estándar 9:6
+  let canvas = createCanvas(360, 640);//estándar 9:6
   //createCanvas(windowWidth, windowHeight);//responsive
+  canvas.parent('canvasDiv');
   
   background(0);
   barolo_ascii.resize(width, height);
