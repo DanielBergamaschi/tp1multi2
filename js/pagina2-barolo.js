@@ -6,6 +6,8 @@ let barolo_ascii;
 let frase = "Amor nos condujo a la misma muerte";
 let indice = 0;
 
+let video;
+
 //let fuente_gotica;
 
 function preload() {
@@ -32,16 +34,25 @@ function setup() {
   palacio_barolo_fachada.resize(width/2, 0);
   //infierno_dante.resize(width/2, 0);
   
+    video = createVideo("videos/babel5.mp4");
+    video.size(width, height);
+    video.loop();
+    video.hide();
+
   
 }
 
 function draw() {
   background(0);
+
+  image(video, 0, 300, width/4, height/4 );
+
   image(barolo_ascii, 220,100, width/2, height/2); 
   image(palacio_barolo, 20, 0, width/2, height/2); 
   image(palacio_barolo_fachada, 100, 250, width/2, height/2); 
   
   //image(infierno_dante, 300, 150, width/4, height/4); 
+
   
   textos();
   
