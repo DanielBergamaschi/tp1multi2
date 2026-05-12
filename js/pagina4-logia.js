@@ -141,6 +141,8 @@ function imagen1Funcion () {
         }
     pop();
 
+   
+
 
 }
 
@@ -153,7 +155,23 @@ function imagen2Funcion () {
         }
     pop();
 
+    push();
+        fill (255, 5);
+        stroke (255)
+        strokeWeight (2);
+        
+        rect (210, 150, 363/4, 408/4, 5);
+    pop ();
 
+
+    push();
+        fill (255, 5);
+        stroke (255)
+        strokeWeight (2)   
+        rect (60, 430, 363/4, 408/4, 5);
+    pop ();
+
+    /* ESTO NO FUNCIONA MUY BIEN CON EL TACTIL EN COMPU SI 
     //MARCADO DE IMAGENES
     if (mouseX >= 210 && mouseX < 210+363/4 && mouseY <= 150+408/4 && mouseY >= 150) {
     
@@ -174,7 +192,7 @@ function imagen2Funcion () {
     rect (60, 430, 363/4, 408/4, 5);
   pop ();
     
-  } 
+  } */
 
 
 }
