@@ -52,20 +52,20 @@ function setup() {
 
 function draw() {
   background(0, 20);
-  frameRate (20);
+  frameRate (5);
 
     crearGaleria ();
 
   
    imagen1Funcion ();
 
-   //cuadradosTexto ();
+   cuadradosTexto ();
 
     push ();
         noFill ();
         stroke (150, 150);
         strokeWeight (1);
-        veloMaya ();
+        //veloMaya ();
     pop();
 
 
@@ -187,7 +187,7 @@ function crearGaleria () {
     galeria = [
         
         {imagen:imagen1, ancho:613, largo:261, posicionX: random (15, 20), posicionY: random (15, 20),},
-        {imagen:imagen2, ancho:156, largo:562, posicionX: random (95, 100), posicionY: 360,},
+        {imagen:imagen2, ancho:156, largo:562, posicionX: random (95,), posicionY: 360,},
         {imagen:imagen3, ancho:708, largo:198, posicionX: random (0, 5), posicionY: random (195, 200),},
         {imagen:imagen4, ancho:72, largo:324, posicionX: random (275, 280), posicionY: 100,},
         {imagen:imagen5, ancho:189, largo:528, posicionX: random (0, 10), posicionY: random (295, 300),},
