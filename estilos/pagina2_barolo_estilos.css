@@ -6,6 +6,7 @@ html{
 body {
   margin: 0;
   padding: 0;
+  background: black;
   overflow: hidden; /* Evita el scroll */
   display: flex;
   justify-content: center;
@@ -16,4 +17,8 @@ body {
 
 canvas {
   display: block; 
+}
+
+@media (min-width: 450px) {
+  body { background: red; }
 }

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Congreso</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:black;
+      overflow:hidden;
+    }
+
+    .container{
+      position:relative;
+      width:100%;
+      height:100vh;
+      overflow:hidden;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+
+      color:white;
+    }
+
+    /* VIDEO */
+
+    video{
+      position:absolute;
+
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+
+      opacity:0.45;
+    }
+
+    /* OSCURECER */
+
+    .overlay{
+      position:absolute;
+      inset:0;
+
+      background:rgba(0,0,0,0.45);
+
+      backdrop-filter:blur(1px);
+    }
+
+    /* CONTENIDO */
+
+    .content{
+      position:relative;
+      z-index:10;
+
+      text-align:center;
+
+      padding:20px;
+
+      max-width:1200px;
+    }
+
+    .subtitle{
+      color:#666;
+
+      text-transform:uppercase;
+
+      letter-spacing:10px;
+
+      margin-bottom:25px;
+
+      font-size:14px;
+    }
+
+    h1{
+      font-size:130px;
+
+      line-height:0.9;
+
+      font-weight:900;
+
+      text-transform:uppercase;
+
+      letter-spacing:-5px;
+    }
+
+    h1 span{
+      color:#707070;
+
+      display:block;
+    }
+
+    .description{
+      max-width:900px;
+
+      margin:auto;
+
+      margin-top:45px;
+
+      color:#9b9b9b;
+
+      font-size:28px;
+
+      line-height:1.6;
+    }
+
+    /* PALABRAS */
+
+    .word{
+      position:absolute;
+
+      color:rgba(255,255,255,0.05);
+
+      font-weight:900;
+
+      text-transform:uppercase;
+
+      letter-spacing:10px;
+
+      white-space:nowrap;
+
+      user-select:none;
+
+      animation:float 18s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%{
+        transform:translate(0px,0px) rotate(0deg);
+      }
+
+      20%{
+        transform:translate(80px,-40px) rotate(1deg);
+      }
+
+      40%{
+        transform:translate(-60px,30px) rotate(-1deg);
+      }
+
+      60%{
+        transform:translate(40px,60px) rotate(1deg);
+      }
+
+      80%{
+        transform:translate(-50px,-20px) rotate(-1deg);
+      }
+
+      100%{
+        transform:translate(0px,0px) rotate(0deg);
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      h1{
+        font-size:60px;
+      }
+
+      .description{
+        font-size:18px;
+      }
+
+      .word{
+        font-size:18px !important;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- VIDEO -->
+
+    <video autoplay muted loop playsinline id="bg-video">
+      <source src="videos/congreso.mp4" type="video/mp4">
+    </video>
+
+    <!-- OVERLAY -->
+
+    <div class="overlay"></div>
+
+    <!-- PALABRAS -->
+
+    <div class="word" style="top:5%; left:5%; font-size:42px;">
+      PODER
+    </div>
+
+    <div class="word" style="top:10%; left:70%; font-size:30px; animation-delay:1s;">
+      CONTROL
+    </div>
+
+    <div class="word" style="top:18%; left:20%; font-size:26px; animation-delay:2s;">
+      ESTADO
+    </div>
+
+    <div class="word" style="top:24%; left:80%; font-size:38px; animation-delay:3s;">
+      AUTORIDAD
+    </div>
+
+    <div class="word" style="top:30%; left:8%; font-size:28px; animation-delay:4s;">
+      DOMINIO
+    </div>
+
+    <div class="word" style="top:36%; left:65%; font-size:34px; animation-delay:5s;">
+      SILENCIO
+    </div>
+
+    <div class="word" style="top:42%; left:30%; font-size:22px; animation-delay:6s;">
+      INFLUENCIA
+    </div>
+
+    <div class="word" style="top:50%; left:75%; font-size:46px; animation-delay:7s;">
+      LEY
+    </div>
+
+    <div class="word" style="top:58%; left:10%; font-size:36px; animation-delay:8s;">
+      VIGILANCIA
+    </div>
+
+    <div class="word" style="top:65%; left:55%; font-size:24px; animation-delay:9s;">
+      SOMBRAS
+    </div>
+
+    <div class="word" style="top:72%; left:25%; font-size:32px; animation-delay:10s;">
+      POLÍTICA
+    </div>
+
+    <div class="word" style="top:80%; left:70%; font-size:28px; animation-delay:11s;">
+      NACIÓN
+    </div>
+
+    <div class="word" style="top:15%; left:45%; font-size:18px; animation-delay:12s;">
+      MANIPULACIÓN
+    </div>
+
+    <div class="word" style="top:55%; left:45%; font-size:20px; animation-delay:13s;">
+      SISTEMA
+    </div>
+
+    <div class="word" style="top:88%; left:40%; font-size:40px; animation-delay:14s;">
+      CONGRESO
+    </div>
+
+    <div class="word" style="top:40%; left:85%; font-size:18px; animation-delay:15s;">
+      DECISIONES
+    </div>
+
+    <div class="word" style="top:8%; left:35%; font-size:24px; animation-delay:16s;">
+      DEMOCRACIA
+    </div>
+
+    <div class="word" style="top:28%; left:50%; font-size:20px; animation-delay:17s;">
+      SOMETIMIENTO
+    </div>
+
+    <div class="word" style="top:76%; left:50%; font-size:22px; animation-delay:18s;">
+      GOBIERNO
+    </div>
+
+    <div class="word" style="top:60%; left:80%; font-size:16px; animation-delay:19s;">
+      PRESIÓN
+    </div>
+
+    <!-- TEXTO PRINCIPAL -->
+
+    <div class="content">
+
+      <p class="subtitle">
+        Buenos Aires · República Argentina
+      </p>
+
+      <h1>
+        EL CORAZÓN
+        <span>DEL PODER</span>
+      </h1>
+
+      <p class="description">
+        Una experiencia visual inspirada en el Congreso de la Nación Argentina.
+        Sombras, arquitectura monumental y una estética cinematográfica que
+        transmite misterio, historia y autoridad.
+      </p>
+
+    </div>
+
+  </div>
+
+  <!-- ACTIVAR AUDIO -->
+
+  <script>
+
+    const video = document.getElementById("bg-video");
+
+    document.body.addEventListener("click", () => {
+
+      video.muted = false;
+
+      video.play();
+
+    });
+
+  </script>
+
+</body>
+
+</html>
