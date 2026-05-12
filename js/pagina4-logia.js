@@ -8,6 +8,8 @@ let imagen2;
 let imagen3;
 let imagen4;
 let imagen5;
+let imagen6;
+let imagen7;
 
 let galeria;
 
@@ -31,6 +33,9 @@ function preload () {
     imagen3 = loadImage ("img/pagina4_logia/logia7.jpg");
     imagen4 = loadImage ("img/pagina4_logia/logia8.jpg");
     imagen5 = loadImage ("img/pagina4_logia/logia9.jpg");
+    imagen6 = loadImage ("img/pagina4_logia/rostro1.jpg");
+    imagen7 = loadImage ("img/pagina4_logia/rostro2.jpg");
+
 
 
 
@@ -50,6 +55,7 @@ function setup() {
         }
     }, 500);
 
+    setInterval(imagen2Funcion, 2000);
 
   
 }
@@ -76,11 +82,14 @@ function draw() {
 
 function cajaTexto () {
 
-        cuadroTextoX = random (0, 360);
-        cuadroTextoY = random (0, 640);
+        cuadroTextoX1 = random (80, 100);
+        cuadroTextoY1 = random (40, 60);
 
-        cuadroTamanioX = random (70, 100);
-        cuadroTamanioY = random (100, 150);
+        cuadroTextoX2 = random (210, 250);
+        cuadroTextoY2 = random (500, 520);
+
+        cuadroTamanioX = random (70, 110);
+        cuadroTamanioY = random (100, 160);
 
         randomGaleria = floor(random(5, 7));
 
@@ -93,12 +102,12 @@ function cuadradosTexto () {
 
     push();
 
-        cajaTexto1 = ledLightFuente.textBounds (galeria[randomGaleria].texto, cuadroTextoX, cuadroTextoY, 12)
+        cajaTexto1 = ledLightFuente.textBounds (galeria[randomGaleria].texto, galeria[randomGaleria].posicionTextoX, galeria[randomGaleria].posicionTextoY, 12)
 
         stroke (255, 50);
         strokeWeight (1);
         fill (0, 20);
-        rect (cajaTexto1.x-4, cajaTexto1.y-4, cuadroTamanioX, cuadroTamanioY+5);
+        rect (cajaTexto1.x-4, cajaTexto1.y-4, cuadroTamanioX+10, cuadroTamanioY+5);
     pop();
 
         push();
@@ -106,15 +115,16 @@ function cuadradosTexto () {
             noFill()
             stroke(255, 50 / i); 
             strokeWeight(i);
-            rect (cajaTexto1.x-4, cajaTexto1.y-4, cuadroTamanioX, cuadroTamanioY+5);
+            rect (cajaTexto1.x-4, cajaTexto1.y-4, cuadroTamanioX+10, cuadroTamanioY+5);
         }
         pop();
 
     push();
         fill (255, 100);
+        textAlign (CENTER);
         textFont (ledLightFuente);
         textSize (12);
-        text (galeria[randomGaleria].texto, cuadroTextoX, cuadroTextoY, cuadroTamanioX, cuadroTamanioY);
+        text (galeria[randomGaleria].texto, galeria[randomGaleria].posicionTextoX, galeria[randomGaleria].posicionTextoY, cuadroTamanioX, cuadroTamanioY);
     pop();
 
     
@@ -134,6 +144,59 @@ function imagen1Funcion () {
 
 }
 
+function imagen2Funcion () {
+
+    push();
+        tint (255, 255);
+            for (i = 7; i < 9; i += 1) {
+            image (galeria[i].imagen, galeria[i].posicionX, galeria[i].posicionY, galeria[i].ancho/4, galeria[i].largo/4);
+        }
+    pop();
+
+
+    //MARCADO DE IMAGENES
+    if (mouseX >= 210 && mouseX < 210+363/4 && mouseY <= 150+408/4 && mouseY >= 150) {
+    
+    push();
+    fill (255, 5);
+    stroke (255)
+    strokeWeight (2);
+    
+    rect (210, 150, 363/4, 408/4, 5);
+    pop ();
+    
+  } else if (mouseX >= 60 && mouseX < 60+363/4 && mouseY <=430+408/4 && mouseY >= 430) {
+    
+  push();
+    fill (255, 5);
+    stroke (255)
+    strokeWeight (2)   
+    rect (60, 430, 363/4, 408/4, 5);
+  pop ();
+    
+  } 
+
+
+}
+
+//SELECCION DE LINKS
+
+  function mousePressed () {
+
+        if (mouseX >= 210 && mouseX < 210+363/4 && mouseY <= 150+408/4 && mouseY >= 150) {
+            
+            
+              location.replace("pagina2-barolo.html")
+
+            
+        } else if (mouseX >= 60 && mouseX < 60+363/4 && mouseY <=430+408/4 && mouseY >= 430) {
+            
+            
+                          location.replace("index.html")
+
+            
+        }
+    }
 
 function crearGaleria () {
 
@@ -144,15 +207,12 @@ function crearGaleria () {
         {imagen:imagen3, ancho:708, largo:198, posicionX: random (0, 360), posicionY: random (0, 640),},
         {imagen:imagen4, ancho:72, largo:324, posicionX: random (0, 360), posicionY: random (0, 640),},
         {imagen:imagen5, ancho:189, largo:528, posicionX: random (0, 360), posicionY: random (0, 640),},
-        {texto:"El desorden es la putrefacción de las cosas y los significados y que todo lo devora una fuerza que despoja al mundo de su inteligibilidad"
-},
-        {texto: "El Eden esta bajo nuestros pies dijeron los rebeldes y con ese grito degollaron a los que escuchaban las voces del cielo"
-},
+        {posicionTextoX: 80, posicionTextoY: 60, texto:"El desorden es la putrefaccion de las cosas y los significados y que todo lo devora una fuerza que despoja al mundo de su inteligibilidad"},
+        {posicionTextoX: 210, posicionTextoY: 500, texto: "El Eden esta bajo nuestros pies dijeron los rebeldes y con ese grito degollaron a los que escuchaban las voces del cielo"},
+        {imagen:imagen6, ancho:363, largo:408, posicionX: 210, posicionY: 150,},
+        {imagen:imagen7, ancho:363, largo:408, posicionX: 60, posicionY: 430,},
+
        
-        // agregar posiciones aproximadas para cada texto dentro de un random,
-        // cada texto va a tener su zona aproximada entonces
-        // armar otra funcion para otras imagenes mas fijas tmb por zonas
-        // algunas de esas imagenes relativamente mas estaticas seran los links a las otras paginas
 
     ]
 
