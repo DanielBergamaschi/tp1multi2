@@ -18,6 +18,8 @@ let cajaTexto1;
 let cuadroTamanioX = 0;
 let cuadroTamanioY = 0;
 
+let randomGaleria = 0;
+
 
 
 function preload () {
@@ -63,6 +65,7 @@ function draw() {
     if (mostrarCuadro) {
             imagen1Funcion ();
             cuadradosTexto();
+            
 
 
         }
@@ -79,6 +82,8 @@ function cajaTexto () {
         cuadroTamanioX = random (70, 100);
         cuadroTamanioY = random (100, 150);
 
+        randomGaleria = floor(random(5, 7));
+
 }
 
 function cuadradosTexto () {
@@ -88,7 +93,7 @@ function cuadradosTexto () {
 
     push();
 
-        cajaTexto1 = ledLightFuente.textBounds ("El Eden esta bajo nuestros pies dijeron los rebeldes y con ese grito degollaron a los que escuchaban las voces del cielo", cuadroTextoX, cuadroTextoY, 12)
+        cajaTexto1 = ledLightFuente.textBounds (galeria[randomGaleria].texto, cuadroTextoX, cuadroTextoY, 12)
 
         stroke (255, 50);
         strokeWeight (1);
@@ -109,7 +114,7 @@ function cuadradosTexto () {
         fill (255, 100);
         textFont (ledLightFuente);
         textSize (12);
-        text ("El Eden esta bajo nuestros pies dijeron los rebeldes y con ese grito degollaron a los que escuchaban las voces del cielo", cuadroTextoX, cuadroTextoY, cuadroTamanioX, cuadroTamanioY);
+        text (galeria[randomGaleria].texto, cuadroTextoX, cuadroTextoY, cuadroTamanioX, cuadroTamanioY);
     pop();
 
     
@@ -139,6 +144,15 @@ function crearGaleria () {
         {imagen:imagen3, ancho:708, largo:198, posicionX: random (0, 360), posicionY: random (0, 640),},
         {imagen:imagen4, ancho:72, largo:324, posicionX: random (0, 360), posicionY: random (0, 640),},
         {imagen:imagen5, ancho:189, largo:528, posicionX: random (0, 360), posicionY: random (0, 640),},
+        {texto:"El desorden es la putrefacción de las cosas y los significados y que todo lo devora una fuerza que despoja al mundo de su inteligibilidad"
+},
+        {texto: "El Eden esta bajo nuestros pies dijeron los rebeldes y con ese grito degollaron a los que escuchaban las voces del cielo"
+},
+       
+        // agregar posiciones aproximadas para cada texto dentro de un random,
+        // cada texto va a tener su zona aproximada entonces
+        // armar otra funcion para otras imagenes mas fijas tmb por zonas
+        // algunas de esas imagenes relativamente mas estaticas seran los links a las otras paginas
 
     ]
 
