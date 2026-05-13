@@ -12,6 +12,17 @@ canvas {
   display: block;
 }
 
+h1 {
+  font-family: 'Times New Roman', serif; 
+  font-size: 8rem;       
+  font-weight: 900;
+  letter-spacing: 15px;    
+  text-align: center;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 20px 0;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); 
+}
 
 /* Estilos para tablets/escritorio */
 @media (min-width: 450px) {

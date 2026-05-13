@@ -159,6 +159,7 @@ function textos() {
   
   pop();
 
+  /*
   // Amor nos condujo a la misma muerte
   push();
   fill(255);
@@ -166,13 +167,14 @@ function textos() {
   //textStyle(ITALIC);
   textFont('Intel One Mono');
   let corte = frase.substring(0, indice);
-  text(corte, 30, 600);
+  text(corte, 30, 550);
   
   // velocidad de escritura
   if (frameCount % 7 == 0 && indice < frase.length) {
     indice++;
   }
   pop();
+  */
   
 }
 
