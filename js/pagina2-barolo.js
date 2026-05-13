@@ -55,8 +55,8 @@ function draw() {
   //image(palacio_barolo_fachada, 100, 250, width/2, height/2); 
 
   dibujar_pedazos();
-  aparicion_opacidad();
-
+ 
+ aparicion_opacidad();
   texto_espiral();
 
   textos();
@@ -122,13 +122,12 @@ function texto_espiral() {
   translate(width / 2, height / 2 - 50);
   
   for (let i = 0; i < total * 3; i++) {
-    // Velocidad reducida de 0.02 a 0.005 para un giro más lento
     const angulo = i * 0.18 + frameCount * 0.005; 
     const radio = 8 + i * 2.2;
     const x = cos(angulo) * radio;
     const y = sin(angulo) * radio;
     
-    const alpha = map(i, 0, total * 3, 0, 180); 
+    const alpha = map(i, 0, total * 3, 100, 255);
     fill(255, alpha);
     textAlign(CENTER, CENTER);
     text(fraseEspiral[i % total], x, y);
