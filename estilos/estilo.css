@@ -12,6 +12,37 @@ canvas {
   display: block;
 }
 
+h1 {
+  font-family: 'Times New Roman', serif; 
+  font-size: 6rem;       
+  font-weight: 900;
+  letter-spacing: 15px;    
+  text-align: center;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin: 20px 0;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); 
+}
+
+.boton-inferior {
+  position: absolute;
+  bottom: 20px;      
+  left: 50%;         
+  transform: translateX(-50%); 
+  text-decoration: none;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  letter-spacing: 2px;
+  z-index: 10;      
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.boton-inferior:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
 
 /* Estilos para tablets/escritorio */
 @media (min-width: 450px) {
