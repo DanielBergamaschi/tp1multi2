@@ -23,6 +23,12 @@ ul {
   gap: 15px; 
 }
 
+canvas {
+  display: block; 
+  justify-content: center;
+  align-items: center;
+}
+
 
 .boton-inferior {
   text-decoration: none;

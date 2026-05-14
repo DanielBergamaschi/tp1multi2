@@ -1,6 +1,6 @@
 // Copio los que nos paso el profe, corte la parte que estrictamente nos sirve
-// seria basicamente realizar un if con las variables de lat y lon y que de acuerdo a los 
-// valores haga un location a otra pagina
+// seria basicamente realizar un if con las variables de lat y lon 
+// y que de acuerdo a los  valores haga un location a otra pagina
 
 let lat = 0;
 let lon = 0;

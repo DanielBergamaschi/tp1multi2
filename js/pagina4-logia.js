@@ -10,6 +10,13 @@ let imagen4;
 let imagen5;
 let imagen6;
 let imagen7;
+let imagen8;
+let imagen9;
+let imagen10;
+let imagen11;
+let imagen12;
+let imagen13;
+
 
 let galeria;
 
@@ -35,6 +42,13 @@ function preload () {
     imagen5 = loadImage ("img/pagina4_logia/logia9.jpg");
     imagen6 = loadImage ("img/pagina4_logia/rostro1.jpg");
     imagen7 = loadImage ("img/pagina4_logia/rostro2.jpg");
+    imagen8 = loadImage ("img/pagina4_logia/logia10.jpg");
+    imagen9 = loadImage ("img/pagina4_logia/logia11.jpg");
+    imagen10 = loadImage ("img/pagina4_logia/logia12.jpg");
+    imagen11 = loadImage ("img/pagina4_logia/oculto1.png");
+    imagen12 = loadImage ("img/pagina4_logia/oculto2.png");
+    imagen13 = loadImage ("img/pagina4_logia/saturno2.gif");
+
 
 
 
