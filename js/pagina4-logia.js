@@ -69,7 +69,30 @@ function setup() {
         }
     }, 500);
 
-    setInterval(imagen2Funcion, 2000);
+    setInterval(() => {
+        mostrarCuadro = !mostrarCuadro; 
+        
+        if (mostrarCuadro) {
+            imagen2Funcion(); 
+        }
+    }, 1000);
+
+
+     setInterval(() => {
+        mostrarCuadro = !mostrarCuadro; 
+        
+        if (mostrarCuadro) {imagen3Funcion (); 
+
+        }
+    }, 2300);
+
+    setInterval(() => {
+        mostrarCuadro = !mostrarCuadro; 
+        
+        if (mostrarCuadro) {
+            imagen2Funcion(); 
+        }
+    }, 1000);
 
   
 }
@@ -105,7 +128,7 @@ function cajaTexto () {
         cuadroTamanioX = random (70, 110);
         cuadroTamanioY = random (100, 160);
 
-        randomGaleria = floor(random(5, 7));
+        randomGaleria = floor(random(8, 10));
 
 }
 
@@ -134,7 +157,7 @@ function cuadradosTexto () {
         pop();
 
     push();
-        fill (255, 100);
+        fill (255, 255);
         textAlign (CENTER);
         textFont (ledLightFuente);
         textSize (12);
@@ -150,7 +173,7 @@ function imagen1Funcion () {
 
     push();
         tint (255, 150);
-        for (i = 0; i < 5; i += 1) {
+        for (i = 0; i < 8; i += 1) {
             image (galeria[i].imagen, galeria[i].posicionX, galeria[i].posicionY, galeria[i].ancho/4, galeria[i].largo/4);
         }
     pop();
@@ -164,7 +187,7 @@ function imagen2Funcion () {
 
     push();
         tint (255, 255);
-            for (i = 7; i < 9; i += 1) {
+            for (i = 10; i < 12; i += 1) {
             image (galeria[i].imagen, galeria[i].posicionX, galeria[i].posicionY, galeria[i].ancho/4, galeria[i].largo/4);
         }
     pop();
@@ -185,28 +208,33 @@ function imagen2Funcion () {
         rect (60, 430, 363/4, 408/4, 5);
     pop ();
 
-    /* ESTO NO FUNCIONA MUY BIEN CON EL TACTIL EN COMPU SI 
-    //MARCADO DE IMAGENES
-    if (mouseX >= 210 && mouseX < 210+363/4 && mouseY <= 150+408/4 && mouseY >= 150) {
-    
+}
+
+function imagen3Funcion () {
+
     push();
-    fill (255, 5);
-    stroke (255)
-    strokeWeight (2);
-    
-    rect (210, 150, 363/4, 408/4, 5);
+        tint (255, 255);
+            for (i = 12; i < 14; i += 1) {
+            image (galeria[i].imagen, galeria[i].posicionX, galeria[i].posicionY, galeria[i].ancho/4, galeria[i].largo/4);
+        }
+    pop();
+
+    push();
+        fill (255, 5);
+        stroke (255)
+        strokeWeight (2);
+        
+        rect (200, 350, 90, 90, 5);
     pop ();
-    
-  } else if (mouseX >= 60 && mouseX < 60+363/4 && mouseY <=430+408/4 && mouseY >= 430) {
-    
-  push();
-    fill (255, 5);
-    stroke (255)
-    strokeWeight (2)   
-    rect (60, 430, 363/4, 408/4, 5);
-  pop ();
-    
-  } */
+
+
+    push();
+        fill (255, 5);
+        stroke (255)
+        strokeWeight (2)   
+        rect (80, 275, 90, 90, 5);
+    pop ();
+
 
 
 }
@@ -227,6 +255,18 @@ function imagen2Funcion () {
                           location.replace("pagina5-amia.html")
 
             
+        }  else if (mouseX >= 80 && mouseX < 170 && mouseY <=365 && mouseY >= 275) {
+
+            
+                          location.replace("pagina6-once.html")
+
+            
+        }  else if (mouseX >= 200 && mouseX < 290 && mouseY <=440 && mouseY >= 350) {
+            
+
+                          location.replace("pagina7-colon.html")
+
+            
         }
     }
 
@@ -239,10 +279,16 @@ function crearGaleria () {
         {imagen:imagen3, ancho:708, largo:198, posicionX: random (0, 360), posicionY: random (0, 640),},
         {imagen:imagen4, ancho:72, largo:324, posicionX: random (0, 360), posicionY: random (0, 640),},
         {imagen:imagen5, ancho:189, largo:528, posicionX: random (0, 360), posicionY: random (0, 640),},
+        {imagen:imagen8, ancho:1413/random (3,5), largo:3620/random (3,5), posicionX: random (0, 360), posicionY: random (0, 640),},
+        {imagen:imagen9, ancho:2205/random (3,5), largo:2305/random (3,5), posicionX: random (0, 360), posicionY: random (0, 640),},
+        {imagen:imagen10, ancho:1309/random (3,5), largo:3807/random (3,5), posicionX: random (0, 360), posicionY: random (0, 640),},
+
         {posicionTextoX: 80, posicionTextoY: 60, texto:"El desorden es la putrefaccion de las cosas y los significados y que todo lo devora una fuerza que despoja al mundo de su inteligibilidad"},
         {posicionTextoX: 210, posicionTextoY: 500, texto: "El Eden esta bajo nuestros pies dijeron los rebeldes y con ese grito degollaron a los que escuchaban las voces del cielo"},
         {imagen:imagen6, ancho:363, largo:408, posicionX: 210, posicionY: 150,},
         {imagen:imagen7, ancho:363, largo:408, posicionX: 60, posicionY: 430,},
+        {imagen:imagen13, ancho:360, largo:360, posicionX: 80, posicionY: 275,},
+        {imagen:imagen11, ancho:360, largo:360, posicionX: 200, posicionY: 350,},
 
        
 
