@@ -224,7 +224,7 @@ function imagen2Funcion () {
         } else if (mouseX >= 60 && mouseX < 60+363/4 && mouseY <=430+408/4 && mouseY >= 430) {
             
             
-                          location.replace("index.html")
+                          location.replace("pagina5-amia.html")
 
             
         }
