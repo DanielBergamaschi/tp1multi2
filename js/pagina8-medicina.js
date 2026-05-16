@@ -12,7 +12,7 @@ function preload () {
 
 
 function setup() {
-    let canvas = createCanvas(1070*2, 640);
+    let canvas = createCanvas(1070, 640);
     canvas.parent('canvasDiv');
 
 
@@ -29,7 +29,7 @@ function draw() {
 
     push();
         tint (255, 255);
-        image (imagen1, 0, 640-168*2, 1070*2, 168*2);
+        image (imagen1, 0, 640-168, 1070, 168);
     pop();
 
 
