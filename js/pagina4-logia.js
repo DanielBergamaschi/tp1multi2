@@ -47,7 +47,6 @@ function preload () {
     imagen10 = loadImage ("img/pagina4_logia/logia12.jpg");
     imagen11 = loadImage ("img/pagina4_logia/oculto1.png");
     imagen12 = loadImage ("img/pagina4_logia/oculto2.png");
-    imagen13 = loadImage ("img/pagina4_logia/saturno2.gif");
 
 
 
@@ -84,15 +83,8 @@ function setup() {
         if (mostrarCuadro) {imagen3Funcion (); 
 
         }
-    }, 2300);
+    }, 1300);
 
-    setInterval(() => {
-        mostrarCuadro = !mostrarCuadro; 
-        
-        if (mostrarCuadro) {
-            imagen2Funcion(); 
-        }
-    }, 1000);
 
   
 }
@@ -126,9 +118,9 @@ function cajaTexto () {
         cuadroTextoY2 = random (500, 520);
 
         cuadroTamanioX = random (70, 110);
-        cuadroTamanioY = random (100, 160);
+        cuadroTamanioY = random (80, 100);
 
-        randomGaleria = floor(random(8, 10));
+        randomGaleria = floor(random(8, 18));
 
 }
 
@@ -187,7 +179,7 @@ function imagen2Funcion () {
 
     push();
         tint (255, 255);
-            for (i = 10; i < 12; i += 1) {
+            for (i = 18; i < 20; i += 1) {
             image (galeria[i].imagen, galeria[i].posicionX, galeria[i].posicionY, galeria[i].ancho/4, galeria[i].largo/4);
         }
     pop();
@@ -214,7 +206,7 @@ function imagen3Funcion () {
 
     push();
         tint (255, 255);
-            for (i = 12; i < 14; i += 1) {
+            for (i = 20; i < 22; i += 1) {
             image (galeria[i].imagen, galeria[i].posicionX, galeria[i].posicionY, galeria[i].ancho/4, galeria[i].largo/4);
         }
     pop();
@@ -273,7 +265,7 @@ function imagen3Funcion () {
 function crearGaleria () {
 
     galeria = [
-        
+        //imagenes funcion 1
         {imagen:imagen1, ancho:613, largo:261, posicionX: random (0, 360), posicionY: random (0, 640),},
         {imagen:imagen2, ancho:156, largo:562, posicionX: random (0, 360), posicionY: random (0, 640),},
         {imagen:imagen3, ancho:708, largo:198, posicionX: random (0, 360), posicionY: random (0, 640),},
@@ -281,13 +273,22 @@ function crearGaleria () {
         {imagen:imagen5, ancho:189, largo:528, posicionX: random (0, 360), posicionY: random (0, 640),},
         {imagen:imagen8, ancho:1413/random (3,5), largo:3620/random (3,5), posicionX: random (0, 360), posicionY: random (0, 640),},
         {imagen:imagen9, ancho:2205/random (3,5), largo:2305/random (3,5), posicionX: random (0, 360), posicionY: random (0, 640),},
-        {imagen:imagen10, ancho:1309/random (3,5), largo:3807/random (3,5), posicionX: random (0, 360), posicionY: random (0, 640),},
-
-        {posicionTextoX: 80, posicionTextoY: 60, texto:"El desorden es la putrefaccion de las cosas y los significados y que todo lo devora una fuerza que despoja al mundo de su inteligibilidad"},
-        {posicionTextoX: 210, posicionTextoY: 500, texto: "El Eden esta bajo nuestros pies dijeron los rebeldes y con ese grito degollaron a los que escuchaban las voces del cielo"},
+        {imagen:imagen10, ancho:1309/5, largo:3807/5, posicionX: random (0, 360), posicionY: random (0, 640),},
+        //texto
+        {posicionTextoX: 80, posicionTextoY: 60, texto:"oculta de la luz en las tinieblas de las cavernas primordiales"},
+        {posicionTextoX: 80, posicionTextoY: 60, texto:"me habia familiarizado con los misterios oscuros de la vieja Tierra"},
+        {posicionTextoX: 80, posicionTextoY: 60, texto:"hay una astucia oculta en el decadente orden cosmico que me ha atrapado"},
+        {posicionTextoX: 80, posicionTextoY: 60, texto:"Buenos Aires ha sido llamada la ciudad de los encuentros"},
+        {posicionTextoX: 80, posicionTextoY: 60, texto:"pero es mas que eso pero es mas que eso pero es mas que eso"},
+        {posicionTextoX: 210, posicionTextoY: 500, texto: "es la ciudad de las la ciudad de las la ciudad de las la ciudad de las"},
+        {posicionTextoX: 210, posicionTextoY: 500, texto: "con velos de atardecer tiernos sobre la ruina"},
+        {posicionTextoX: 210, posicionTextoY: 500, texto: "donde se permite que el horror no muerto cruce"},
+        {posicionTextoX: 210, posicionTextoY: 500, texto: "el abismo que se abre entre la conciencia y la materia"},
+        {posicionTextoX: 210, posicionTextoY: 500, texto: "formas sin nombre acechan aun en los lugares tenebrosos del mundo"},
+        //imagenes funcion 2 y 3
         {imagen:imagen6, ancho:363, largo:408, posicionX: 210, posicionY: 150,},
         {imagen:imagen7, ancho:363, largo:408, posicionX: 60, posicionY: 430,},
-        {imagen:imagen13, ancho:360, largo:360, posicionX: 80, posicionY: 275,},
+        {imagen:imagen12, ancho:360, largo:360, posicionX: 80, posicionY: 275,},
         {imagen:imagen11, ancho:360, largo:360, posicionX: 200, posicionY: 350,},
 
        
