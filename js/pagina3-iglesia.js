@@ -19,7 +19,7 @@ function preload () {
 }
 
 function setup() {
-    let canvas = createCanvas(360, 640);
+    let canvas = createCanvas(360, 2000);
     canvas.parent('canvasDiv');
 
 
@@ -44,7 +44,7 @@ function draw() {
 
     push();
         tint (255, intensidadLuz);
-        image (imagen1, random (0, 2), random (0, 2), 360, 640);
+        image (imagen1, random (0, 2), 2000-640+random (0, 2), 360, 640);
     pop();
 
 
@@ -96,7 +96,7 @@ function cuadradosDistorsion () {
     fill (random (20, 100), 25);
       rectMode (CENTER);
       for (i = 0; i < 400; i += 15) {
-          rect (random (0, 360), random (0, 640), 20, 100)
+          rect (random (0, 360), random (0, 2000), 20, 100)
         }
 
 }
@@ -107,8 +107,8 @@ function lineasDistorsion () {
       stroke (random (150, 255), 20);
       strokeWeight (1,2);
       
-      for (i = 0; i < 640; i += random (1, 100)) {
-        line (i-160, 0, i-160, 480);
+      for (i = 0; i < 2000; i += random (1, 100)) {
+        line (i-1640, 0, i-1640, 480);
         line (0, i, 320, i);
       }  
 
