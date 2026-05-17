@@ -1,6 +1,8 @@
 let imagen1;
 let imagen2;
 let imagen3;
+let imagen4;
+let imagen5;
 
 let galeria;
 
@@ -18,6 +20,10 @@ function preload () {
     imagen1 = loadImage ("img/pagina3-iglesia/iglesia2.jpg");
     imagen2 = loadImage ("img/pagina3-iglesia/iglesia1.jpg");
     imagen3 = loadImage ("img/pagina3-iglesia/iglesia3.jpg");
+    imagen4 = loadImage ("img/pagina3-iglesia/angel1.png");
+    imagen5 = loadImage ("img/pagina3-iglesia/angel2.png");
+
+    
 
 
 }
@@ -53,6 +59,13 @@ function draw() {
     push();
         tint (255, intensidadLuz);
         image (imagen1, random (0, 2), 2000-640+random (0, 2), 360, 640);
+    pop();
+
+    push();
+        tint (255, intensidadLuz);
+        image (imagen4, random (10, 15), random (5, 15), 360/3, 640/3);
+        image (imagen5, random (225, 230), random (5, 15), 360/3, 640/3);
+
     pop();
 
 
@@ -145,8 +158,8 @@ push ();
     for (i = 0; i < 600; i += 200) {
         translate (0, posicionFlecha+=movimientoFlecha)
 
-        quad (120, 30, 120, 60, 180, 110, 180, 80);
-        quad (180, 80, 180, 110, 240, 60, 240, 30);
+        quad (120, 10, 120, 40, 180, 90, 180, 60);
+        quad (180, 60, 180, 90, 240, 40, 240, 10);
     }
 pop();
 
