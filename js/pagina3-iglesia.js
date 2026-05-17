@@ -18,8 +18,6 @@ let posicionFlecha = -50;
 function preload () {
 
     imagen1 = loadImage ("img/pagina3-iglesia/iglesia2.jpg");
-    imagen2 = loadImage ("img/pagina3-iglesia/iglesia1.jpg");
-    imagen3 = loadImage ("img/pagina3-iglesia/iglesia3.jpg");
     imagen4 = loadImage ("img/pagina3-iglesia/angel1.png");
     imagen5 = loadImage ("img/pagina3-iglesia/angel2.png");
 
