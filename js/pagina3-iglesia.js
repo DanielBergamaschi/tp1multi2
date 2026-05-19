@@ -14,6 +14,12 @@ let movimientoFlecha = 1;
 let intesidadFlecha = 0;
 let posicionFlecha = -50;
 
+let nexos;
+let randomNexos = 0;
+let nexoX = 180;
+let nexoY = 1000;
+let nexoRadio = 50;
+
 
 function preload () {
 
@@ -187,3 +193,36 @@ function textoEspiral() {
   }
   pop();
 }
+
+
+function nexo () {
+
+    randomNexos = floor(random (0,4));
+
+
+    nexos = [
+
+        {pagina: "Pagina1-congreso.html"},
+        {pagina: "pagina2-barolo.html"},
+        {pagina: "pagina5-amia.html"},
+        {pagina: "pagina6-once.html"},
+
+    ]
+
+
+}
+
+  function mousePressed () {
+
+    let botonNexo = dist(mouseX, mouseY, nexoX, nexoY);
+
+
+    if (botonNexo < nexoRadio) {
+
+    nexo ();
+
+    location.replace(nexos[randomNexos].pagina)
+
+    }
+
+  }
