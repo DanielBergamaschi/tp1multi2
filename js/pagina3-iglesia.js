@@ -26,6 +26,8 @@ function preload () {
     imagen1 = loadImage ("img/pagina3-iglesia/iglesia2.jpg");
     imagen4 = loadImage ("img/pagina3-iglesia/angel1.png");
     imagen5 = loadImage ("img/pagina3-iglesia/angel2.png");
+    imagen3 = loadImage ("img/pagina3-iglesia/angeles1.png");
+    imagen2 = loadImage ("img/pagina3-iglesia/angeles2.png");
 
     
 
@@ -69,6 +71,14 @@ function draw() {
         tint (255, intensidadLuz);
         image (imagen4, random (10, 15), random (5, 15), 360/3, 640/3);
         image (imagen5, random (225, 230), random (5, 15), 360/3, 640/3);
+
+    pop();
+
+    push();
+        tint (255, intensidadLuz);
+        imageMode (CENTER);
+        image (imagen2, random (177, 183), random (1250, 1265), 865/3, 345/3);
+        image (imagen3, random (177, 183), random (715, 730), 865/3, 323/3);
 
     pop();
 
@@ -149,7 +159,7 @@ function lineasCentro (){
 
 if (intesidadFlecha == 0) {
         movimientoFlecha = 1
-    } else if (intesidadFlecha == 50) {
+    } else if (intesidadFlecha == 110) {
             intesidadFlecha = 0
             posicionFlecha = 0
     }
@@ -158,12 +168,16 @@ if (intesidadFlecha == 0) {
 push ();
     fill (255, intesidadFlecha+=movimientoFlecha);
     noStroke ();
-
-    for (i = 0; i < 600; i += 200) {
+    rectMode (CENTER);
+    for (i = 0; i < 3; i += 1) {
         translate (0, posicionFlecha+=movimientoFlecha)
 
-        quad (120, 10, 120, 40, 180, 90, 180, 60);
-        quad (180, 60, 180, 90, 240, 40, 240, 10);
+
+        rect (180, 10, 120, 20);
+        rect (180, 50, 20, 200)
+
+        //quad (120, 10, 120, 40, 180, 90, 180, 60);
+        //quad (180, 60, 180, 90, 240, 40, 240, 10);
     }
 pop();
 
