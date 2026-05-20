@@ -13,7 +13,7 @@ function preload(){
 }
 
 function setup(){
-  let canvas = createCanvas(360, 640);
+  let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("canvasDiv");
   frameRate(24);
 
@@ -45,7 +45,7 @@ function draw(){
 function fondoVideo(){
   push();
   tint(255, 118);
-  image(videoIngenieria, -92, 0, 545, 640);
+  image(videoIngenieria, 0, 0, width, height);
   pop();
 
   noStroke();
@@ -268,4 +268,10 @@ function touchMoved(){
   puntoCarga.x = constrain(toque.x, 20, width - 20);
   puntoCarga.y = constrain(toque.y, 20, height - 20);
   return false;
+}
+
+function windowResized(){
+
+  resizeCanvas(windowWidth, windowHeight);
+
 }
