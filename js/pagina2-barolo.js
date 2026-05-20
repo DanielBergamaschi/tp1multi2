@@ -5,6 +5,9 @@ let barolo_ascii_oculto;
 let frase = "Amor nos condujo a la misma muerte";
 let indice = 0;
 
+// video
+let video;
+
 // nexos
 let nexoX;
 let nexoY;
@@ -76,6 +79,7 @@ function draw() {
   texto_espiral();
 
   textos();
+
   
 }
 
@@ -137,18 +141,6 @@ function nexo() {
 }
 
 
-function mousePressed() {
-
-  let boton_nexo = dist(mouseX, mouseY, nexoX, nexoY);
-
-  if (boton_nexo < nexo_radio) {
-
-    nexo();
-
-  }
-
-}
-
 /*
 function videos(){
     video = createVideo("videos/babel5.mp4");
@@ -164,11 +156,9 @@ function videos() {
   video = createVideo(['videos/babel5.mp4']);
 
   video.size(width, height);
-
-  // ocultar elemento html
   video.hide();
 
-  // propiedades necesarias para mobile
+  // mobile
   video.elt.muted = true;
   video.elt.autoplay = true;
   video.elt.loop = true;
@@ -179,7 +169,7 @@ function videos() {
   video.attribute('autoplay', '');
   video.attribute('loop', '');
 
-  // intentar reproducir
+  // reproducir
   video.play();
 }
 
@@ -189,5 +179,27 @@ function touchStarted() {
     video.play();
   }
 
+  // detectar toque en nexo
+  let boton_nexo = dist(mouseX, mouseY, nexoX, nexoY);
+
+  if (boton_nexo < nexo_radio) {
+
+    nexo();
+
+  }
+
   return false;
+
+}
+
+function mousePressed() {
+
+  let boton_nexo = dist(mouseX, mouseY, nexoX, nexoY);
+
+  if (boton_nexo < nexo_radio) {
+
+    nexo();
+
+  }
+
 }
