@@ -218,3 +218,74 @@ function armar_ventana_9() {
     ventana_9.text("$" + numAleatorio, ventana_9.width / 2, y + desplace);
   }
 }
+
+
+// conexión entre páginas 
+
+function nexos() {
+
+  // ventana_1
+  if (
+    mouseX > 40 &&
+    mouseX < 100 &&
+    mouseY > 50 &&
+    mouseY < 120
+  ) {
+    location.replace("pagina5-amia.html");
+  }
+
+  // ventana_2
+  if (
+    mouseX > 151 &&
+    mouseX < 211 &&
+    mouseY > 50 &&
+    mouseY < 120
+  ) {
+    location.replace("pagina9-multimedia.html");
+  }
+
+  // ventana_3
+  if (
+    mouseX > 262 &&
+    mouseX < 322 &&
+    mouseY > 50 &&
+    mouseY < 120
+  ) {
+    location.replace("pagina4-logia.html");
+  }
+
+  // ventana_7
+  if (
+    mouseX > 40 &&
+    mouseX < 100 &&
+    mouseY > 450 &&
+    mouseY < 570
+  ) {
+    location.replace("pagina3-iglesia.html");
+  }
+
+  // ventana_8
+  if (
+    mouseX > 151 &&
+    mouseX < 211 &&
+    mouseY > 450 &&
+    mouseY < 570
+  ) {
+    location.replace("Pagina1-congreso.html");
+  }
+
+  // ventana_9
+  if (
+    mouseX > 262 &&
+    mouseX < 322 &&
+    mouseY > 450 &&
+    mouseY < 570
+  ) {
+    location.replace("pagina2-barolo.html");
+  }
+}
+
+
+function mousePressed() {
+  nexos();
+}
