@@ -1,0 +1,23 @@
+body.pagina-celular {
+  background: black;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-x: hidden;
+}
+
+body.pagina-celular #canvasDiv {
+  width: min(100vw, 360px);
+}
+
+body.pagina-celular canvas {
+  width: min(100vw, 360px) !important;
+  height: auto !important;
+}
+
+@media (min-width: 450px) {
+  body.pagina-celular {
+    background: black;
+  }
+}

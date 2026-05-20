@@ -1,0 +1,430 @@
+let videoCongreso;
+
+let fuenteLed;
+let fuenteBlue;
+let fuenteFaith;
+let fuenteQuake;
+
+let palabras = [];
+let destellos = [];
+let particulas = [];
+let sellos = [];
+let linksOcultos = [];
+let audioActivo = false;
+let ultimoToque = -20;
+let lenteX = 180;
+let lenteY = 320;
+
+let intensidadLuz = 15;
+let aumentoIntensidad = 1;
+let intensidadFlecha = 0;
+let posicionFlecha = -50;
+
+function preload(){
+  fuenteLed = loadFont("fuentes/ledlight.otf");
+  fuenteBlue = loadFont("fuentes/blue_screen/Blue Screen Personal Use.ttf");
+  fuenteFaith = loadFont("fuentes/faith_collapsing/Faith Collapsing.ttf");
+  fuenteQuake = loadFont("fuentes/quake/dpquake_.ttf");
+}
+
+function setup(){
+  let canvas = createCanvas(360, 640);
+  canvas.parent("canvasDiv");
+  frameRate(20);
+
+  videoCongreso = createVideo("videos/congreso.mp4");
+  videoCongreso.volume(0.45);
+  videoCongreso.elt.muted = false;
+  videoCongreso.elt.setAttribute("playsinline", "");
+  videoCongreso.loop();
+  videoCongreso.hide();
+  intentarAudioInicio(videoCongreso);
+
+  crearPalabras();
+  crearDestellos();
+  crearParticulas();
+  crearLinksOcultos();
+}
+
+function draw(){
+  background(0);
+
+  fondoVideo();
+  luz();
+  distorsionCuadrados();
+  distorsionLineas();
+  flechasCentro();
+  textoEspiral();
+  palabrasMoviles();
+  dibujarParticulas();
+  dibujarDestellos();
+  dibujarSellos();
+  lenteInteractiva();
+  textoPrincipal();
+}
+
+function fondoVideo(){
+  push();
+  tint(255, 135);
+  image(videoCongreso, -85, 0, 530, 640);
+  pop();
+
+  noStroke();
+  fill(0, 118);
+  rect(0, 0, width, height);
+
+  for(let y = 0; y < height; y += 5){
+    fill(255, 10);
+    rect(0, y, width, 1);
+  }
+}
+
+function luz(){
+  intensidadLuz += aumentoIntensidad;
+
+  if(intensidadLuz >= 50){
+    aumentoIntensidad = -1;
+  }
+  else if(intensidadLuz <= 15){
+    aumentoIntensidad = 1;
+  }
+
+  intensidadLuz = constrain(intensidadLuz, 15, 50);
+}
+
+function distorsionCuadrados(){
+  noStroke();
+  rectMode(CENTER);
+
+  for(let i = 0; i < 34; i++){
+    fill(random(80, 220), random(18, 52));
+    rect(random(0, width), random(0, height), random(8, 26), random(45, 130));
+  }
+
+  rectMode(CORNER);
+}
+
+function distorsionLineas(){
+  stroke(random(150, 255), 28);
+  strokeWeight(1);
+
+  for(let y = 0; y < height; y += random(18, 86)){
+    line(0, y, width, y + random(-4, 4));
+  }
+
+  for(let x = 0; x < width; x += random(18, 90)){
+    line(x, 0, x + random(-4, 4), height);
+  }
+}
+
+function flechasCentro(){
+  if(intensidadFlecha >= 50){
+    intensidadFlecha = 0;
+    posicionFlecha = -50;
+  }
+
+  intensidadFlecha += 1;
+  posicionFlecha += 1;
+
+  push();
+  translate(0, posicionFlecha);
+  fill(255, intensidadFlecha * 2.4);
+  noStroke();
+
+  for(let i = 0; i < height + 220; i += 200){
+    push();
+    translate(0, i);
+    quad(120, 10, 120, 40, 180, 90, 180, 60);
+    quad(180, 60, 180, 90, 240, 40, 240, 10);
+    pop();
+  }
+
+  pop();
+}
+
+function textoEspiral(){
+  const frase = "El poder observa la ciudad. La ley baja sobre la arquitectura. Congreso, Babel, Estado, sombra. ";
+
+  push();
+  textFont("Courier New");
+  textSize(12);
+  textAlign(CENTER, CENTER);
+  translate(width / 2, height / 2);
+
+  for(let i = 0; i < frase.length * 2; i++){
+    const angulo = i * 0.18 + frameCount * 0.006;
+    const radio = i * 0.72 - intensidadLuz * 1.45;
+    const x = cos(angulo) * radio;
+    const y = sin(angulo) * radio;
+
+    fill(255, 232, 185, constrain(intensidadFlecha * 3, 20, 150));
+    text(frase[i % frase.length], x, y);
+  }
+
+  pop();
+}
+
+function crearPalabras(){
+  const textos = [
+    "PODER", "CONTROL", "ESTADO", "AUTORIDAD", "DOMINIO",
+    "SILENCIO", "INFLUENCIA", "LEY", "VIGILANCIA", "SOMBRAS",
+    "POLITICA", "NACION", "MANIPULACION", "SISTEMA", "CONGRESO"
+  ];
+
+  const fuentes = [fuenteBlue, fuenteLed, fuenteFaith, fuenteQuake];
+
+  for(let i = 0; i < textos.length; i++){
+    palabras.push({
+      texto: textos[i],
+      fuente: fuentes[i % fuentes.length],
+      x: random(-35, width - 35),
+      y: random(25, height - 25),
+      tam: random(14, 34),
+      velX: random(-0.45, 0.45),
+      velY: random(-0.35, 0.35),
+      alpha: random(70, 150)
+    });
+  }
+}
+
+function crearLinksOcultos(){
+  linksOcultos = [
+    { x: 0, y: 0, w: 125, h: 165, pagina: "pagina3-iglesia.html" },
+    { x: 235, y: 0, w: 125, h: 165, pagina: "pagina6-once.html" },
+    { x: 104, y: 500, w: 152, h: 140, pagina: "pagina2-barolo.html" }
+  ];
+}
+
+function palabrasMoviles(){
+  textAlign(CENTER, CENTER);
+
+  for(let palabra of palabras){
+    palabra.x += palabra.velX + sin(frameCount * 0.015) * 0.12;
+    palabra.y += palabra.velY + cos(frameCount * 0.012) * 0.10;
+
+    if(palabra.x > width + 70) palabra.x = -70;
+    if(palabra.x < -80) palabra.x = width + 70;
+    if(palabra.y > height + 40) palabra.y = -40;
+    if(palabra.y < -45) palabra.y = height + 40;
+
+    push();
+    textFont(palabra.fuente);
+    textSize(palabra.tam);
+    fill(255, 235, 185, palabra.alpha);
+    stroke(255, 215, 120, 34);
+    strokeWeight(1);
+    text(palabra.texto, palabra.x, palabra.y);
+    pop();
+  }
+}
+
+function crearDestellos(){
+  for(let i = 0; i < 95; i++){
+    destellos.push({
+      x: random(width),
+      y: random(height),
+      tam: random(1.5, 5.5),
+      fase: random(TWO_PI),
+      velocidad: random(0.035, 0.09),
+      angulo: random(TWO_PI)
+    });
+  }
+}
+
+function dibujarDestellos(){
+  for(let d of destellos){
+    const pulso = (sin(frameCount * d.velocidad + d.fase) + 1) / 2;
+    const alpha = map(pulso, 0, 1, 0, 235);
+    const largo = d.tam * map(pulso, 0, 1, 5, 13);
+
+    push();
+    translate(d.x, d.y);
+    rotate(d.angulo + frameCount * 0.004);
+    stroke(255, 238, 190, alpha);
+    strokeWeight(1);
+    line(-largo, 0, largo, 0);
+    line(0, -largo, 0, largo);
+    noStroke();
+    fill(255, 245, 210, alpha);
+    circle(0, 0, d.tam);
+    pop();
+
+    if(pulso < 0.02 && random() < 0.02){
+      d.x = random(width);
+      d.y = random(height);
+    }
+  }
+}
+
+function crearParticulas(){
+  for(let i = 0; i < 120; i++){
+    particulas.push({
+      x: random(width),
+      y: random(height),
+      tam: random(1, 4),
+      velX: random(-0.3, 0.3),
+      velY: random(-0.3, 0.3)
+    });
+  }
+}
+
+function dibujarParticulas(){
+  noStroke();
+  fill(255, 230, 170, 28);
+
+  for(let p of particulas){
+    circle(p.x, p.y, p.tam);
+    p.x += p.velX;
+    p.y += p.velY;
+
+    if(p.x > width) p.x = 0;
+    if(p.x < 0) p.x = width;
+    if(p.y > height) p.y = 0;
+    if(p.y < 0) p.y = height;
+  }
+}
+
+function dibujarSellos(){
+  for(let i = sellos.length - 1; i >= 0; i--){
+    let sello = sellos[i];
+    sello.alpha -= 3;
+    sello.radio += 1.8;
+
+    push();
+    translate(sello.x, sello.y);
+    rotate(sello.giro + frameCount * 0.004);
+    noFill();
+    stroke(255, 228, 170, sello.alpha);
+    rectMode(CENTER);
+    rect(0, 0, sello.radio * 1.7, sello.radio, 2);
+    line(-sello.radio * 0.65, 0, sello.radio * 0.65, 0);
+    line(0, -sello.radio * 0.32, 0, sello.radio * 0.32);
+
+    noStroke();
+    fill(255, 235, 185, sello.alpha);
+    textFont("Courier New");
+    textSize(9);
+    textAlign(CENTER, CENTER);
+    text(sello.texto, 0, 0);
+    pop();
+
+    if(sello.alpha <= 0){
+      sellos.splice(i, 1);
+    }
+  }
+}
+
+function lenteInteractiva(){
+  lenteX = lerp(lenteX, mouseX || width / 2, 0.08);
+  lenteY = lerp(lenteY, mouseY || height / 2, 0.08);
+
+  push();
+  noFill();
+  stroke(255, 230, 170, 88);
+  circle(lenteX, lenteY, 92 + sin(frameCount * 0.07) * 12);
+  stroke(255, 52);
+  line(lenteX - 58, lenteY, lenteX + 58, lenteY);
+  line(lenteX, lenteY - 58, lenteX, lenteY + 58);
+  pop();
+}
+
+function textoPrincipal(){
+  push();
+  textAlign(CENTER, CENTER);
+
+  textFont(fuenteLed);
+  textSize(11);
+  fill(215, 196, 146, 230);
+  text("Buenos Aires / Republica Argentina", width / 2, 210);
+
+  textFont(fuenteFaith);
+  textSize(49);
+  fill(255, 245, 225, 238);
+  text("EL CORAZON", width / 2, 285);
+  fill(165, 165, 165, 230);
+  text("DEL PODER", width / 2, 330);
+
+  textFont(fuenteLed);
+  textSize(12);
+  fill(220, 220, 220, 220);
+  text("Sombras, arquitectura monumental,\nhistoria y autoridad.", width / 2, 408);
+
+  fill(255, 230, 180, 150);
+  textSize(10);
+  text(audioActivo ? "audio activo" : "tocar para activar audio", width / 2, 604);
+  pop();
+}
+
+function activarAudio(){
+  if(videoCongreso && !audioActivo){
+    videoCongreso.elt.muted = false;
+    videoCongreso.volume(0.45);
+    videoCongreso.loop();
+    audioActivo = true;
+  }
+}
+
+function intentarAudioInicio(video){
+  const playPromise = video.elt.play();
+
+  if(playPromise !== undefined){
+    playPromise
+      .then(() => {
+        audioActivo = true;
+      })
+      .catch(() => {
+        audioActivo = false;
+      });
+  }
+}
+
+function manejarToque(x, y){
+  if(frameCount - ultimoToque < 5){
+    return false;
+  }
+
+  ultimoToque = frameCount;
+  activarAudio();
+
+  lenteX = x;
+  lenteY = y;
+  sellos.push({
+    x: x,
+    y: y,
+    radio: 42,
+    alpha: 220,
+    giro: random(-0.2, 0.2),
+    texto: random(["LEY", "VOTO", "ACTA", "PODER"])
+  });
+
+  for(let link of linksOcultos){
+    if(x >= link.x && x <= link.x + link.w && y >= link.y && y <= link.y + link.h){
+      location.replace(link.pagina);
+      return false;
+    }
+  }
+
+  return false;
+}
+
+function mousePressed(){
+  return manejarToque(mouseX, mouseY);
+}
+
+function mouseDragged(){
+  lenteX = constrain(mouseX, 0, width);
+  lenteY = constrain(mouseY, 0, height);
+  return false;
+}
+
+function touchStarted(){
+  const toque = touches.length > 0 ? touches[0] : { x: mouseX, y: mouseY };
+  return manejarToque(toque.x, toque.y);
+}
+
+function touchMoved(){
+  const toque = touches.length > 0 ? touches[0] : { x: mouseX, y: mouseY };
+  lenteX = constrain(toque.x, 0, width);
+  lenteY = constrain(toque.y, 0, height);
+  return false;
+}
