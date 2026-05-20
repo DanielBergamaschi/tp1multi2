@@ -33,6 +33,8 @@ function setup() {
   
   background(0);
 
+  videos();
+
   barolo_ascii_oculto.resize(width, height);
   barolo_ascii_oculto.filter(INVERT);
 
@@ -45,7 +47,12 @@ function setup() {
 function draw() {
   background(0);
 
- push();
+  push();
+  tint(255, 135);
+  image(video, 0, 0, width, height);
+  pop();
+
+  push();
 
   let movimientoX = sin(frameCount * 0.01) * 20;
   let movimientoY = cos(frameCount * 0.008) * 15;
@@ -142,5 +149,13 @@ function mousePressed() {
 
 }
 
+function videos(){
+    video = createVideo("videos/babel5.mp4");
+    video.size(width, height);
+    video.volume(0);
+    video.elt.setAttribute('playsinline', '');
+    video.loop();
+    video.hide();
+}
 
 
