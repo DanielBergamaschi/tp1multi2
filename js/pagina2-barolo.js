@@ -149,6 +149,7 @@ function mousePressed() {
 
 }
 
+/*
 function videos(){
     video = createVideo("videos/babel5.mp4");
     video.size(width, height);
@@ -156,6 +157,37 @@ function videos(){
     video.elt.setAttribute('playsinline', '');
     video.loop();
     video.hide();
+}*/
+
+function videos() {
+
+  video = createVideo(['videos/babel5.mp4']);
+
+  video.size(width, height);
+
+  // ocultar elemento html
+  video.hide();
+
+  // propiedades necesarias para mobile
+  video.elt.muted = true;
+  video.elt.autoplay = true;
+  video.elt.loop = true;
+  video.elt.playsInline = true;
+
+  video.attribute('muted', '');
+  video.attribute('playsinline', '');
+  video.attribute('autoplay', '');
+  video.attribute('loop', '');
+
+  // intentar reproducir
+  video.play();
 }
 
+function touchStarted() {
 
+  if (video) {
+    video.play();
+  }
+
+  return false;
+}
