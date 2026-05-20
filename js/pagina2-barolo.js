@@ -48,7 +48,7 @@ function draw() {
   background(0);
 
   push();
-  tint(255, 135);
+  tint(255, 65);
   image(video, 0, 0, width, height);
   pop();
 
