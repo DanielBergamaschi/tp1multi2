@@ -144,6 +144,6 @@ function mousePressed() {
 
 
 
-/*function windowResized() {
+function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-}*/
+}
