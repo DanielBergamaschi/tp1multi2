@@ -5,8 +5,20 @@ let barolo_ascii_oculto;
 let frase = "Amor nos condujo a la misma muerte";
 let indice = 0;
 
-//variable video
-let video;
+// nexos
+let nexoX;
+let nexoY;
+let nexo_radio = 45;
+let random_nexos;
+
+let nexos = [
+
+  { pagina: "Pagina1-congreso.html" },
+  { pagina: "pagina3-iglesia.html" },
+  { pagina: "pagina4-logia.html" },
+  { pagina: "pagina6-once.html" }
+
+];
 
 function preload() {
  
@@ -24,42 +36,34 @@ function setup() {
   barolo_ascii_oculto.resize(width, height);
   barolo_ascii_oculto.filter(INVERT);
 
-
-
-
+  // centro del espiral
+  nexoX = width / 2;
+  nexoY = height / 2 - 50;
   
 }
 
 function draw() {
   background(0);
 
-
-
  push();
 
-let movimientoX = sin(frameCount * 0.01) * 20;
-let movimientoY = cos(frameCount * 0.008) * 15;
+  let movimientoX = sin(frameCount * 0.01) * 20;
+  let movimientoY = cos(frameCount * 0.008) * 15;
 
-let escala = 1.08 + sin(frameCount * 0.01) * 0.03;
+  let escala = 1.08 + sin(frameCount * 0.01) * 0.03;
 
-let alpha_fondo = map(
+  let alpha_fondo = map(
   sin(frameCount * 0.02), -1,1,120,255);
 
-tint(255, alpha_fondo);
+  tint(255, alpha_fondo);
 
-translate(width / 2, height / 2);
+  translate(width / 2, height / 2);
 
-scale(escala);
+  scale(escala);
 
-image(
-  barolo_ascii_oculto,
-  -width / 2 + movimientoX,
-  -height / 2 + movimientoY,
-  width,
-  height
-);
+  image(barolo_ascii_oculto, -width / 2 + movimientoX, -height / 2 + movimientoY, width, height);
 
-pop();
+  pop();
 
 
   texto_espiral();
@@ -67,9 +71,6 @@ pop();
   textos();
   
 }
-
-
-
 
 function texto_espiral() {
   push();
@@ -117,11 +118,29 @@ function textos() {
   }
   
   pop();
-
   
 }
 
+function nexo() {
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  random_nexos = floor(random(0, nexos.length));
+
+  location.replace(nexos[random_nexos].pagina);
+
 }
+
+
+function mousePressed() {
+
+  let boton_nexo = dist(mouseX, mouseY, nexoX, nexoY);
+
+  if (boton_nexo < nexo_radio) {
+
+    nexo();
+
+  }
+
+}
+
+
+
