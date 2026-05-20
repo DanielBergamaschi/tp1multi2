@@ -39,5 +39,5 @@ canvas {
 }
 
 @media (min-width: 450px) {
-  body { background: red; }
+  body { background: black; }
 }
