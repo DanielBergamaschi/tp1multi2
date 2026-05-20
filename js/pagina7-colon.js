@@ -27,22 +27,19 @@ function draw() {
 
   background(0);
 
- 
-  let a1 = map(sin(frameCount * 0.01), -1, 1, 40, 255);
-  let a2 = map(sin(frameCount * 0.01 + TWO_PI / 3), -1, 1, 40, 255);
-  let a3 = map(sin(frameCount * 0.01 + TWO_PI * 2 / 3), -1, 1, 40, 255);
+  let a1 = map(sin(frameCount * 0.018), -1, 1, 20, 110);
+  let a2 = map(sin(frameCount * 0.018 + TWO_PI / 3), -1, 1, 20, 110);
+  let a3 = map(sin(frameCount * 0.018 + TWO_PI * 2 / 3), -1, 1, 20, 110);
 
-  // movimiento
-  let x1 = map(noise(frameCount * 0.01), 0, 1, -5, 5);
-  let y1 = map(noise(frameCount * 0.01 + 100), 0, 1, -5, 5);
+  let x1 = map(noise(frameCount * 0.02), 0, 1, -8, 8);
+  let y1 = map(noise(frameCount * 0.02 + 100), 0, 1, -8, 8);
 
-  let x2 = map(noise(frameCount * 0.01 + 200), 0, 1, -5, 5);
-  let y2 = map(noise(frameCount * 0.01 + 300), 0, 1, -5, 5);
+  let x2 = map(noise(frameCount * 0.02 + 200), 0, 1, -8, 8);
+  let y2 = map(noise(frameCount * 0.02 + 300), 0, 1, -8, 8);
 
-  let x3 = map(noise(frameCount * 0.01 + 400), 0, 1, -5, 5);
-  let y3 = map(noise(frameCount * 0.01 + 500), 0, 1, -5, 5);
+  let x3 = map(noise(frameCount * 0.02 + 400), 0, 1, -8, 8);
+  let y3 = map(noise(frameCount * 0.02 + 500), 0, 1, -8, 8);
 
- 
   blendMode(SCREEN);
 
   tint(255, a1);
@@ -57,4 +54,7 @@ function draw() {
   noTint();
 
   blendMode(BLEND);
+
+  fill(0, 140);
+  rect(0, 0, width, height);
 }

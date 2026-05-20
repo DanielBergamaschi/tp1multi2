@@ -30,7 +30,7 @@ function setup() {
   
   edificio.resize(width, height);
   edificio.filter(THRESHOLD, 0.3);
-  edificio.filter(INVERT, 0.2);
+  edificio.filter(INVERT);
 
   gato_fortuna.resize(60,70);
   //ropa.resize(60,120);
@@ -59,7 +59,18 @@ function draw() {
   background(0);
   
   // fondo
-  image(edificio, 0, 0);
+  //image(edificio, 0, 0);
+
+// movimiento sutil
+let offsetX = sin(frameCount * 0.002) * 4;
+let offsetY = cos(frameCount * 0.0015) * 3;
+
+// opacidad del edificio
+tint(255, 90);
+
+image(edificio, offsetX, offsetY);
+
+noTint();
   
   armar_ventana_1();
   armar_ventana_2();
