@@ -25,7 +25,7 @@ function preload(){
 function setup() {
   
   let canvas = createCanvas(360, 640); // estándar 9:6
-  
+
   background(0);
   
   edificio.resize(width, height);
