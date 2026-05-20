@@ -143,7 +143,6 @@ function lineasDistorsion () {
       strokeWeight (1,2);
       
       for (i = 0; i < 2000; i += random (1, 100)) {
-        line (i, 0, i, 2000);
         line (0, i, 360, i);
       }  
 
