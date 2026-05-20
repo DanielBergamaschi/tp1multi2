@@ -28,7 +28,7 @@ function preload(){
 }
 
 function setup(){
-  let canvas = createCanvas(360, 640);
+  let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("canvasDiv");
   frameRate(20);
 
@@ -66,7 +66,7 @@ function draw(){
 function fondoVideo(){
   push();
   tint(255, 135);
-  image(videoCongreso, -85, 0, 530, 640);
+  image(videoCongreso, 0, 0, width, height);
   pop();
 
   noStroke();
@@ -427,4 +427,10 @@ function touchMoved(){
   lenteX = constrain(toque.x, 0, width);
   lenteY = constrain(toque.y, 0, height);
   return false;
+}
+
+function windowResized(){
+
+  resizeCanvas(windowWidth, windowHeight);
+
 }
