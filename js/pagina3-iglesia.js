@@ -59,11 +59,13 @@ function draw() {
   lineasCentro ();
 
 
-  textoEspiral() 
+  textoEspiral();
+
+  cruzAbajo ();
 
 
     push();
-        tint (255, intensidadLuz);
+        tint (255, intensidadLuz-10);
         image (imagen1, random (0, 2), 2000-640+random (0, 2), 360, 640);
     pop();
 
@@ -150,6 +152,12 @@ function lineasDistorsion () {
         line (i, 0, i, 2000);
       }  
 
+    push();
+        stroke (0, 255)
+        line (0, 0, 0, 2000);
+    pop();
+
+
 }
 
 function lineasCentro (){
@@ -173,7 +181,10 @@ push ();
 
 
         rect (180, 10, 120, 20);
-        rect (180, 50, 20, 200)
+        rect (180, -25, 20, 50)
+        rect (180, 85, 20, 130)
+
+        
 
         //quad (120, 10, 120, 40, 180, 90, 180, 60);
         //quad (180, 60, 180, 90, 240, 40, 240, 10);
@@ -182,6 +193,28 @@ pop();
 
 
     
+}
+
+
+
+function cruzAbajo () {
+
+
+    push ();
+
+        translate (0, 1650)
+        fill (intensidadLuz, intensidadLuz);
+        //stroke (0, 255);
+        //noFill ();
+         for (let i = 1; i < 25; i +=1) {
+            stroke(60, 100 / i); 
+            strokeWeight(i);
+        rect (180, 10, 120, 20);
+        rect (180, -25, 20, 50)
+        rect (180, 85, 20, 130)
+         }
+    pop ();
+
 }
 
 

@@ -91,7 +91,7 @@ function setup() {
 
 function draw() {
   background(0, 20);
-  frameRate (20);
+  frameRate (13);
 
     crearGaleria ();
 
