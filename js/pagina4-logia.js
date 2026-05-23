@@ -31,7 +31,9 @@ let randomGaleria = 0;
 
 let bandera1 = false;
 
-
+let intervalo1;
+let intervalo2;
+let intervalo3;
 
 function preload () {
 
@@ -62,7 +64,7 @@ function setup() {
     canvas.parent('canvasDiv');
 
 
-    setInterval(() => {
+    intervalo1 = setInterval(() => {
         mostrarCuadro = !mostrarCuadro; //revisar operador ternario
         
         if (mostrarCuadro) {
@@ -70,7 +72,7 @@ function setup() {
         }
     }, 500);
 
-    setInterval(() => {
+    intervalo2 = setInterval(() => {
         mostrarCuadro = !mostrarCuadro; 
         
         if (mostrarCuadro) {
@@ -79,7 +81,7 @@ function setup() {
     }, 1000);
 
 
-     setInterval(() => {
+     intervalo3 = setInterval(() => {
         mostrarCuadro = !mostrarCuadro; 
         
         if (mostrarCuadro) {imagen3Funcion (); 
@@ -103,8 +105,12 @@ function draw() {
 
     if (bandera1) {
 
-        mostrarCuadro = false;
-        cuadroFinal ();
+    mostrarCuadro = false;    
+    clearInterval(intervalo1);
+    clearInterval(intervalo2);
+    clearInterval(intervalo3);
+
+    cuadroFinal ();
 
 
     }
