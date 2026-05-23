@@ -29,6 +29,8 @@ let cuadroTamanioY = 0;
 
 let randomGaleria = 0;
 
+let bandera1 = false;
+
 
 
 function preload () {
@@ -97,6 +99,16 @@ function draw() {
 
   
 
+    
+
+    if (bandera1) {
+
+        mostrarCuadro = false;
+        cuadroFinal ();
+
+
+    }
+
     if (mostrarCuadro) {
             imagen1Funcion ();
             cuadradosTexto();
@@ -104,7 +116,6 @@ function draw() {
 
 
         }
-
     
 }
 
@@ -238,26 +249,31 @@ function imagen3Funcion () {
         if (mouseX >= 210 && mouseX < 210+363/4 && mouseY <= 150+408/4 && mouseY >= 150) {
             
             
-              location.replace("pagina2-barolo.html")
+            bandera1 = true;
+
+            setTimeout(cambiarPagina1, 20000)
 
             
         } else if (mouseX >= 60 && mouseX < 60+363/4 && mouseY <=430+408/4 && mouseY >= 430) {
             
             
-                          location.replace("pagina5-amia.html")
+            bandera1 = true;
 
+            setTimeout(cambiarPagina2, 20000)
             
         }  else if (mouseX >= 80 && mouseX < 170 && mouseY <=365 && mouseY >= 275) {
 
             
-                          location.replace("pagina6-once.html")
+            bandera1 = true;
 
+            setTimeout(cambiarPagina3, 20000)
             
         }  else if (mouseX >= 200 && mouseX < 290 && mouseY <=440 && mouseY >= 350) {
             
 
-                          location.replace("pagina7-colon.html")
+            bandera1 = true;
 
+            setTimeout(cambiarPagina4, 20000)
             
         }
     }
@@ -294,5 +310,52 @@ function crearGaleria () {
        
 
     ]
+
+}
+
+function cambiarPagina1 () {
+
+
+location.replace("pagina2-barolo.html")
+
+}
+
+function cambiarPagina2 () {
+
+
+    location.replace("pagina5-amia.html")
+
+}
+
+function cambiarPagina3 () {
+
+
+                          location.replace("pagina6-once.html")
+
+}
+
+function cambiarPagina4 () {
+
+
+                          location.replace("pagina7-colon.html")
+
+}
+
+function cuadroFinal () {
+
+
+            push();
+                stroke (255)
+                fill (0, 200)
+                rect (20, 20, 320, 620)
+            pop();
+            push();
+                fill (255, 255);
+                textAlign (CENTER);
+                textFont ('Courier New');
+                textSize (20);
+                text ( "Oculta de la luz en las tinieblas de las cavernas primordiales, me había familiarizado con los misterios oscuros de la vieja Tierra. Hay una astucia oculta en el decadente orden cósmico que me ha atrapado. Buenos Aires ha sido llamada la ciudad de los encuentros, pero es más que eso: es la ciudad de los velos de atardecer tiernos sobre la ruina, donde se permite que el horror no muerto cruce el abismo que se abre entre la conciencia y la materia. Formas sin nombre acechan aún en los lugares tenebrosos del mundo... 𝑏̥̊⃝𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝𝑙̥̊⃝𝑏̥̊⃝ｂⓐｂ𝐄𝓛𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝ʅǝqɐq𝑙̥̊⃝",
+                     25, 25, 315, 615);
+            pop();
 
 }
