@@ -28,6 +28,15 @@ function draw() {
         image (imagen1, random (0, 2), random (0, 2), 360, 640);
     pop();
 
+
+    push();
+        fill (255, random (20, 60));
+        textAlign (CENTER);
+        textFont ('Courier New');
+        textSize (15);
+        text ("ʅǝqɐq", random (220, 223), random (310, 311));
+        text ("⧼*⧽*⧼*⧽*", random (223, 224), random (360, 361));
+    pop();
   
 
     cuadradosDistorsion ();
@@ -65,25 +74,12 @@ function lineasDistorsion () {
         line (i, 0, i, 2000);
       }  
 
-}
-
-function nexo () {
-
-    randomNexos = floor(random (0,4));
-
-
-    nexos = [
-
-        {pagina: "pagina6-once.html"},
-        {pagina: "pagina7-colon.html"},
-        {pagina: "pagina8-medicina.html"},
-        {pagina: "pagina10-ingenieria.html"},
-
-    ]
-
+      push();
+        stroke (0, 255)
+        line (0, 0, 0, 640);
+    pop();
 
 }
-
 
 function mousePressed () {
 
@@ -91,9 +87,29 @@ function mousePressed () {
  if (mouseX >= 140 && mouseX < 220 && mouseY <= 445 && mouseY >= 395) {
             
             
-            nexo ();
 
-            location.replace(nexos[randomNexos].pagina)
+            location.replace("pagina6-once.html")
+
+            
+        } else if (mouseX >= 5 && mouseX < 55 && mouseY <= 45 && mouseY >= 5) {
+            
+            
+
+            location.replace("pagina7-colon.html")
+
+            
+        } else if (mouseX >= 190 && mouseX < 270 && mouseY <= 330 && mouseY >= 280) {
+            
+            
+
+            location.replace("pagina8-medicina.html")
+
+            
+        } else if (mouseX >= 300 && mouseX < 350 && mouseY <= 110 && mouseY >= 70) {
+            
+            
+
+            location.replace("pagina10-ingenieria.html")
 
             
         }

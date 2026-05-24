@@ -14,11 +14,19 @@ let movimientoFlecha = 1;
 let intesidadFlecha = 0;
 let posicionFlecha = -50;
 
-let nexos;
-let randomNexos = 0;
+
 let nexoX = 180;
 let nexoY = 1000;
 let nexoRadio = 50;
+
+let nexoX2 = 180;
+let nexoY2 = 720;
+
+let nexoX3 = 180;
+let nexoY3 = 1255;
+
+let nexoX4 = 180;
+let nexoY4 = 1650;
 
 
 function preload () {
@@ -240,24 +248,6 @@ function textoEspiral() {
   pop();
 }
 
-
-function nexo () {
-
-    randomNexos = floor(random (0,4));
-
-
-    nexos = [
-
-        {pagina: "Pagina1-congreso.html"},
-        {pagina: "pagina2-barolo.html"},
-        {pagina: "pagina5-amia.html"},
-        {pagina: "pagina6-once.html"},
-
-    ]
-
-
-}
-
   function mousePressed () {
 
     let botonNexo = dist(mouseX, mouseY, nexoX, nexoY);
@@ -265,10 +255,38 @@ function nexo () {
 
     if (botonNexo < nexoRadio) {
 
-    nexo ();
 
-    location.replace(nexos[randomNexos].pagina)
+    location.replace("Pagina1-congreso.html")
+
+    }
+    
+    let botonNexo2 = dist(mouseX, mouseY, nexoX2, nexoY2);
+
+
+    if (botonNexo2 < nexoRadio) {
+
+
+    location.replace("pagina2-barolo.html")
 
     }
 
+    let botonNexo3 = dist(mouseX, mouseY, nexoX3, nexoY3);
+
+
+    if (botonNexo3 < nexoRadio) {
+
+
+    location.replace("pagina5-amia.html")
+
+    }
+
+    let botonNexo4 = dist(mouseX, mouseY, nexoX4, nexoY4);
+
+
+    if (botonNexo4 < nexoRadio) {
+
+
+    location.replace("pagina6-once.html")
+
+    }
   }

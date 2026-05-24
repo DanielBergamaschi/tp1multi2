@@ -1,25 +1,38 @@
 let imagen1;
 let imagen2;
+let imagen3;
 
 let randomGaleria = 0;
 
-let nexos;
-let randomNexos = 0;
 let nexoX1 = 70;
 let nexoY1 = 315;
-let nexoRadio = 60;
+let nexoRadio = 45;
 
 let nexoX2 = 230;
 let nexoY2 = 360;
+
+let nexoX3 = 50;
+let nexoY3 = 70;
+
+let nexoX4 = 50;
+let nexoY4 = 120;
+
+let nexoX5 = 260;
+let nexoY5 = 140;
 
 let intensidadLuz = 0
 
 let aumentoIntensidad = 1
 
+let bandera1 = false;
+
 
 function preload () {
 
     imagen1 = loadImage ("img/pagina8-medicina/craneo3.jpg");
+    imagen2 = loadImage ("img/pagina8-medicina/reloj1.png");
+    imagen3 = loadImage ("img/pagina8-medicina/pirata.jpg");
+
 
 
 }
@@ -49,6 +62,22 @@ function draw() {
         image (imagen1, random (0,3), random (40, 43), 585, 600);
     pop();
 
+    push();
+        tint (255, intensidadLuz);
+        image (imagen3, random (0,3), random (6, 10), 800/8, 600/8);
+    pop();
+
+    push();
+        fill (0, 45);
+        noStroke();
+        rect (0, 0, 100, 41);
+    pop();
+
+    push();
+        tint (255, intensidadLuz);
+        image (imagen2, random (0,3), random (90, 93), 800/10, 600/10);
+    pop();
+
 
     luz ();
 
@@ -62,7 +91,9 @@ function draw() {
         text (galeria[randomGaleria].texto, galeria[randomGaleria].posicionTextoX, galeria[randomGaleria].posicionTextoY, 30, 50);
     pop();
 
+    cuadradosDistorsion ();
 
+    lineasDistorsion ();
 
 
 }
@@ -91,48 +122,57 @@ function crearGaleria () {
 }
 
 
-function nexo () {
-
-    randomNexos = floor(random (0,6));
-
-
-    nexos = [
-
-        {pagina: "pagina5-amia.html"},
-        {pagina: "pagina6-once.html"},
-        {pagina: "pagina7-colon.html"},
-        {pagina: "pagina9-multimedia.html"},
-        {pagina: "pagina10-ingenieria.html"},
-
-
-    ]
-
-
-}
-
   function mousePressed () {
 
-    let botonNexo1 = dist(mouseX, mouseY, nexoX1, nexoY1);
+        let botonNexo1 = dist(mouseX, mouseY, nexoX1, nexoY1);
 
 
-    if (botonNexo1 < nexoRadio) {
-
-    nexo ();
-
-    location.replace(nexos[randomNexos].pagina)
-
-    }
-
-    let botonNexo2 = dist(mouseX, mouseY, nexoX2, nexoY2);
+        if (botonNexo1 < nexoRadio) {
 
 
-    if (botonNexo2 < nexoRadio) {
+        location.replace("pagina5-amia.html")
 
-    nexo ();
+        }
 
-    location.replace(nexos[randomNexos].pagina)
+        let botonNexo2 = dist(mouseX, mouseY, nexoX2, nexoY2);
 
-    }
+
+        if (botonNexo2 < nexoRadio) {
+
+
+        location.replace("pagina6-once.html")
+
+        }
+
+        let botonNexo3 = dist(mouseX, mouseY, nexoX3, nexoY3);
+
+
+        if (botonNexo3 < nexoRadio) {
+
+
+        location.replace("pagina7-colon.html")
+
+        }
+
+        let botonNexo4 = dist(mouseX, mouseY, nexoX4, nexoY4);
+
+
+        if (botonNexo4 < nexoRadio) {
+
+
+        location.replace("pagina9-multimedia.html")
+
+        }
+
+        let botonNexo5 = dist(mouseX, mouseY, nexoX5, nexoY5);
+
+
+        if (botonNexo5 < nexoRadio) {
+
+
+        location.replace("pagina10-ingenieria.html")
+
+        }
 
   }
 
@@ -152,35 +192,61 @@ function luz () {
 
 }
 
+//___________________CUADRADOS DISTORSION___________
 
 
-/*
-function leerTexto () {
+function cuadradosDistorsion () {
 
+    push ();
+        noStroke ();
+        fill (random (20, 100), 25);
+        rectMode (CENTER);
+        for (i = 0; i < 400; i += 15) {
+            rect (random (0, 360), random (0, 640), 20, 100)
+            }
+    pop();
 
-    if () {
+}
 
-    
+function lineasDistorsion () {
 
-
-
-    } else if () {
-
-
-
-    } 
-
-    else {
+    push();
+        stroke (random (150, 255), 20);
+        strokeWeight (1,2);
         
-        push();
-            fill (255, 100);
-            textAlign (CENTER);
-            textFont ('Courier New');
-            textSize (12);
-            text (galeria[randomGaleria].texto, galeria[randomGaleria].posicionTextoX, galeria[randomGaleria].posicionTextoY, 30, 50);
-        pop();}
+        for (i = 0; i < 640; i += random (1, 100)) {
+            line (0, i, 360, i);
+        }  
+
+        for (i = 0; i < 360; i += random (1, 100)) {
+            line (i, 0, i, 2000);
+        }  
+
+    pop();
+
+     push();
+        stroke (0, 255)
+        line (0, 0, 0, 640);
+    pop();
+
+}
 
 
+function cuadroFinal () {
 
 
-}*/
+            push();
+                stroke (255)
+                fill (0, 200)
+                rect (20, 20, 320, 620)
+            pop();
+            push();
+                fill (255, 255);
+                textAlign (CENTER);
+                textFont ('Courier New');
+                textSize (20);
+                text ( "Oculta de la luz en las tinieblas de las cavernas primordiales, me había familiarizado con los misterios oscuros de la vieja Tierra. Hay una astucia oculta en el decadente orden cósmico que me ha atrapado. Buenos Aires ha sido llamada la ciudad de los encuentros, pero es más que eso: es la ciudad de los velos de atardecer tiernos sobre la ruina, donde se permite que el horror no muerto cruce el abismo que se abre entre la conciencia y la materia. Formas sin nombre acechan aún en los lugares tenebrosos del mundo... 𝑏̥̊⃝𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝𝑙̥̊⃝𝑏̥̊⃝ｂⓐｂ𝐄𝓛𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝ʅǝqɐq𝑙̥̊⃝",
+                     25, 25, 315, 615);
+            pop();
+
+}
