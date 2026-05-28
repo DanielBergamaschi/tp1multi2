@@ -14,6 +14,7 @@ function preload(){
 }
 
 function setup(){
+  pixelDensity(1);
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("canvasDiv");
   frameRate(24);
@@ -40,7 +41,6 @@ function draw(){
   dibujarPulsos();
   marcasFlotantes();
   focoTactil();
-  placaCentral();
 }
 
 function fondoVideo(){
@@ -82,10 +82,10 @@ function crearFragmentos(){
 
 function crearLinksOcultos(){
   linksOcultos = [
-    { x: 0, y: 0, w: 120, h: 150, pagina: "pagina8-medicina.html" },
-    { x: 240, y: 0, w: 120, h: 150, pagina: "pagina9-multimedia.html" },
-    { x: 0, y: 490, w: 130, h: 150, pagina: "pagina6-once.html" },
-    { x: 230, y: 490, w: 130, h: 150, pagina: "pagina3-iglesia.html" }
+    { x: 0, y: 0, w: width * 0.34, h: height * 0.26, pagina: "pagina8-medicina.html" },
+    { x: width * 0.66, y: 0, w: width * 0.34, h: height * 0.26, pagina: "pagina9-multimedia.html" },
+    { x: 0, y: height * 0.74, w: width * 0.36, h: height * 0.26, pagina: "pagina6-once.html" },
+    { x: width * 0.64, y: height * 0.74, w: width * 0.36, h: height * 0.26, pagina: "pagina3-iglesia.html" }
   ];
 }
 
@@ -193,30 +193,6 @@ function focoTactil(){
   circle(focoX, focoY, 74 + sin(frameCount * 0.08) * 12);
 }
 
-function placaCentral(){
-  push();
-  translate(width / 2, 410);
-  rectMode(CENTER);
-
-  fill(0, 196);
-  stroke(255, 96);
-  rect(0, 0, 248, 116);
-
-  noStroke();
-  textAlign(CENTER, CENTER);
-  textFont(ledFuente);
-  textSize(32);
-  fill(255, 238);
-  text("AMIA", 0, -26);
-
-  textFont("Courier New");
-  textSize(10);
-  fill(255, 176);
-  text("archivo / memoria / embajada", 0, 16);
-  text(audioActivo ? "audio activo" : "tocar para activar audio", 0, 40);
-  pop();
-}
-
 function activarAudio(){
   if(videoAmia && !audioActivo){
     videoAmia.elt.muted = false;
@@ -281,5 +257,6 @@ function touchMoved(){
 function windowResized(){
 
   resizeCanvas(windowWidth, windowHeight);
+  crearLinksOcultos();
 
 }

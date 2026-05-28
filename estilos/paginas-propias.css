@@ -3,53 +3,24 @@ body.pagina-celular {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  overflow-x: hidden;
+  align-items: stretch;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
 }
 
 body.pagina-celular #canvasDiv {
-  width: 360px;
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
 }
 
 body.pagina-celular canvas {
   display: block;
-  width: 360px !important;
-  height: 640px !important;
-}
-
-/* Mobile: centrado, sin deformar */
-@media (max-width: 449px) {
-  body.pagina-celular {
-    min-height: 100svh;
-    align-items: center;
-  }
-
-  body.pagina-celular #canvasDiv {
-    width: min(100vw, 360px);
-  }
-
-  body.pagina-celular canvas {
-    width: min(100vw, 360px) !important;
-    height: auto !important;
-  }
-}
-
-/* Desktop: rectangulo centrado */
-@media (min-width: 450px) {
-  body.pagina-celular {
-    background: black;
-    min-height: 100vh;
-  }
-
-  body.pagina-celular #canvasDiv {
-    width: 360px;
-  }
-
-  body.pagina-celular canvas {
-    width: 360px !important;
-    height: 640px !important;
-  }
+  width: 100vw !important;
+  height: 100vh !important;
+  height: 100svh !important;
 }

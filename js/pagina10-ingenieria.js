@@ -13,6 +13,7 @@ function preload(){
 }
 
 function setup(){
+  pixelDensity(1);
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("canvasDiv");
   frameRate(24);
@@ -38,7 +39,6 @@ function draw(){
   dibujarEstructura();
   ondasDeCarga();
   formulasMoviles();
-  panelCentral();
   cursorCarga();
 }
 
@@ -58,8 +58,18 @@ function fondoVideo(){
 function crearNodos(){
   nodos = [];
 
-  for(let y = 92; y <= 500; y += 68){
-    for(let x = 34; x <= 326; x += 73){
+  const margenX = width * 0.10;
+  const margenY = height * 0.15;
+  const filas = 6;
+  const columnas = 5;
+  const pasoX = (width - margenX * 2) / (columnas - 1);
+  const pasoY = (height * 0.68) / (filas - 1);
+
+  for(let fila = 0; fila < filas; fila++){
+    for(let col = 0; col < columnas; col++){
+      let x = margenX + col * pasoX;
+      let y = margenY + fila * pasoY;
+
       nodos.push({
         baseX: x,
         baseY: y,
@@ -81,9 +91,9 @@ function crearFormulas(){
 
 function crearLinksOcultos(){
   linksOcultos = [
-    { x: 0, y: 0, w: 120, h: 160, pagina: "pagina8-medicina.html" },
-    { x: 240, y: 0, w: 120, h: 160, pagina: "pagina9-multimedia.html" },
-    { x: 115, y: 500, w: 130, h: 140, pagina: "pagina7-colon.html" }
+    { x: 0, y: 0, w: width * 0.34, h: height * 0.28, pagina: "pagina8-medicina.html" },
+    { x: width * 0.66, y: 0, w: width * 0.34, h: height * 0.28, pagina: "pagina9-multimedia.html" },
+    { x: width * 0.32, y: height * 0.76, w: width * 0.36, h: height * 0.24, pagina: "pagina7-colon.html" }
   ];
 }
 
@@ -124,7 +134,7 @@ function dibujarEstructura(){
       let b = nodos[j];
       let dBase = dist(a.baseX, a.baseY, b.baseX, b.baseY);
 
-      if(dBase < 104){
+      if(dBase < width * 0.28){
         let tension = dist(a.x, a.y, b.x, b.y) - dBase;
         let alpha = map(abs(tension), 0, 24, 46, 210, true);
         stroke(tension > 4 ? 245 : 145, alpha);
@@ -157,43 +167,12 @@ function formulasMoviles(){
   textSize(10);
 
   for(let i = 0; i < formulas.length; i++){
-    let x = 24 + (i % 3) * 106;
-    let y = (frameCount * 0.42 + i * 78) % 560 + 36;
+    let x = width * 0.08 + (i % 3) * width * 0.29;
+    let y = (frameCount * 0.42 + i * height * 0.12) % (height * 0.86) + height * 0.06;
 
     fill(255, 94);
     text(formulas[i], x + random(-0.7, 0.7), y);
   }
-}
-
-function panelCentral(){
-  push();
-  translate(width / 2, 324);
-  rectMode(CENTER);
-
-  fill(0, 196);
-  stroke(255, 132);
-  rect(0, 0, 254, 128);
-
-  for(let i = 1; i < 16; i += 5){
-    noFill();
-    stroke(255, 62 / i);
-    strokeWeight(i);
-    rect(0, 0, 254, 128);
-  }
-
-  noStroke();
-  fill(255, 238);
-  textAlign(CENTER, CENTER);
-  textFont(ledFuente);
-  textSize(24);
-  text("INGENIERIA", 0, -32);
-
-  textFont("Courier New");
-  textSize(10);
-  fill(235, 190);
-  text("arrastrar estructura", 0, 18);
-  text(audioActivo ? "audio activo" : "tocar para activar audio", 0, 40);
-  pop();
 }
 
 function cursorCarga(){
@@ -273,5 +252,9 @@ function touchMoved(){
 function windowResized(){
 
   resizeCanvas(windowWidth, windowHeight);
+  puntoCarga.x = width / 2;
+  puntoCarga.y = height / 2;
+  crearNodos();
+  crearLinksOcultos();
 
 }

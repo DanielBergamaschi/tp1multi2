@@ -28,9 +28,10 @@ function preload(){
 }
 
 function setup(){
+  pixelDensity(1);
   let canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent("canvasDiv");
-  frameRate(20);
+  frameRate(15);
 
   videoCongreso = createVideo("videos/congreso.mp4");
   videoCongreso.volume(0.45);
@@ -53,14 +54,11 @@ function draw(){
   luz();
   distorsionCuadrados();
   distorsionLineas();
-  flechasCentro();
-  textoEspiral();
   palabrasMoviles();
   dibujarParticulas();
   dibujarDestellos();
   dibujarSellos();
   lenteInteractiva();
-  textoPrincipal();
 }
 
 function fondoVideo(){
@@ -73,7 +71,7 @@ function fondoVideo(){
   fill(0, 118);
   rect(0, 0, width, height);
 
-  for(let y = 0; y < height; y += 5){
+  for(let y = 0; y < height; y += 8){
     fill(255, 10);
     rect(0, y, width, 1);
   }
@@ -96,7 +94,7 @@ function distorsionCuadrados(){
   noStroke();
   rectMode(CENTER);
 
-  for(let i = 0; i < 34; i++){
+  for(let i = 0; i < 12; i++){
     fill(random(80, 220), random(18, 52));
     rect(random(0, width), random(0, height), random(8, 26), random(45, 130));
   }
@@ -108,11 +106,11 @@ function distorsionLineas(){
   stroke(random(150, 255), 28);
   strokeWeight(1);
 
-  for(let y = 0; y < height; y += random(18, 86)){
+  for(let y = 0; y < height; y += random(42, 110)){
     line(0, y, width, y + random(-4, 4));
   }
 
-  for(let x = 0; x < width; x += random(18, 90)){
+  for(let x = 0; x < width; x += random(46, 120)){
     line(x, 0, x + random(-4, 4), height);
   }
 }
@@ -166,9 +164,8 @@ function textoEspiral(){
 
 function crearPalabras(){
   const textos = [
-    "PODER", "CONTROL", "ESTADO", "AUTORIDAD", "DOMINIO",
-    "SILENCIO", "INFLUENCIA", "LEY", "VIGILANCIA", "SOMBRAS",
-    "POLITICA", "NACION", "MANIPULACION", "SISTEMA", "CONGRESO"
+    "PODER", "CONTROL", "ESTADO", "LEY", "SOMBRAS",
+    "POLITICA", "NACION", "SISTEMA", "CONGRESO"
   ];
 
   const fuentes = [fuenteBlue, fuenteLed, fuenteFaith, fuenteQuake];
@@ -179,7 +176,7 @@ function crearPalabras(){
       fuente: fuentes[i % fuentes.length],
       x: random(-35, width - 35),
       y: random(25, height - 25),
-      tam: random(14, 34),
+      tam: random(14, 28),
       velX: random(-0.45, 0.45),
       velY: random(-0.35, 0.35),
       alpha: random(70, 150)
@@ -189,9 +186,9 @@ function crearPalabras(){
 
 function crearLinksOcultos(){
   linksOcultos = [
-    { x: 0, y: 0, w: 125, h: 165, pagina: "pagina3-iglesia.html" },
-    { x: 235, y: 0, w: 125, h: 165, pagina: "pagina6-once.html" },
-    { x: 104, y: 500, w: 152, h: 140, pagina: "pagina2-barolo.html" }
+    { x: 0, y: 0, w: width * 0.34, h: height * 0.28, pagina: "pagina3-iglesia.html" },
+    { x: width * 0.66, y: 0, w: width * 0.34, h: height * 0.28, pagina: "pagina6-once.html" },
+    { x: width * 0.32, y: height * 0.76, w: width * 0.36, h: height * 0.24, pagina: "pagina2-barolo.html" }
   ];
 }
 
@@ -219,7 +216,7 @@ function palabrasMoviles(){
 }
 
 function crearDestellos(){
-  for(let i = 0; i < 95; i++){
+  for(let i = 0; i < 32; i++){
     destellos.push({
       x: random(width),
       y: random(height),
@@ -257,7 +254,7 @@ function dibujarDestellos(){
 }
 
 function crearParticulas(){
-  for(let i = 0; i < 120; i++){
+  for(let i = 0; i < 45; i++){
     particulas.push({
       x: random(width),
       y: random(height),
@@ -325,33 +322,6 @@ function lenteInteractiva(){
   stroke(255, 52);
   line(lenteX - 58, lenteY, lenteX + 58, lenteY);
   line(lenteX, lenteY - 58, lenteX, lenteY + 58);
-  pop();
-}
-
-function textoPrincipal(){
-  push();
-  textAlign(CENTER, CENTER);
-
-  textFont(fuenteLed);
-  textSize(11);
-  fill(215, 196, 146, 230);
-  text("Buenos Aires / Republica Argentina", width / 2, 210);
-
-  textFont(fuenteFaith);
-  textSize(49);
-  fill(255, 245, 225, 238);
-  text("EL CORAZON", width / 2, 285);
-  fill(165, 165, 165, 230);
-  text("DEL PODER", width / 2, 330);
-
-  textFont(fuenteLed);
-  textSize(12);
-  fill(220, 220, 220, 220);
-  text("Sombras, arquitectura monumental,\nhistoria y autoridad.", width / 2, 408);
-
-  fill(255, 230, 180, 150);
-  textSize(10);
-  text(audioActivo ? "audio activo" : "tocar para activar audio", width / 2, 604);
   pop();
 }
 
@@ -432,5 +402,6 @@ function touchMoved(){
 function windowResized(){
 
   resizeCanvas(windowWidth, windowHeight);
+  crearLinksOcultos();
 
 }
