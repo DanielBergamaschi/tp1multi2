@@ -95,6 +95,13 @@ function draw() {
 
     lineasDistorsion ();
 
+    if (bandera1) {
+
+    cuadroFinal ();
+
+
+    }
+
 
 }
 
@@ -129,8 +136,10 @@ function crearGaleria () {
 
         if (botonNexo1 < nexoRadio) {
 
+            bandera1 = true;
 
-        location.replace("pagina5-amia.html")
+            setTimeout(cambiarPagina5, 20000)
+
 
         }
 
@@ -140,7 +149,12 @@ function crearGaleria () {
         if (botonNexo2 < nexoRadio) {
 
 
-        location.replace("pagina6-once.html")
+              bandera1 = true;
+
+            setTimeout(cambiarPagina1, 20000)
+
+
+        
 
         }
 
@@ -149,8 +163,10 @@ function crearGaleria () {
 
         if (botonNexo3 < nexoRadio) {
 
+            bandera1 = true;
 
-        location.replace("pagina7-colon.html")
+            setTimeout(cambiarPagina2, 20000)
+
 
         }
 
@@ -159,8 +175,10 @@ function crearGaleria () {
 
         if (botonNexo4 < nexoRadio) {
 
+            bandera1 = true;
 
-        location.replace("pagina9-multimedia.html")
+            setTimeout(cambiarPagina3, 20000)
+
 
         }
 
@@ -169,12 +187,49 @@ function crearGaleria () {
 
         if (botonNexo5 < nexoRadio) {
 
+            bandera1 = true;
 
-        location.replace("pagina10-ingenieria.html")
+            setTimeout(cambiarPagina4, 20000)
+
 
         }
 
   }
+
+
+  function cambiarPagina1 () {
+
+
+location.replace("pagina6-once.html")
+
+}
+
+function cambiarPagina2 () {
+
+
+        location.replace("pagina7-colon.html")
+
+}
+
+function cambiarPagina3 () {
+
+
+        location.replace("pagina9-multimedia.html")
+
+}
+
+function cambiarPagina4 () {
+
+
+        location.replace("pagina10-ingenieria.html")
+}
+
+function cambiarPagina5 () {
+
+
+            location.replace("pagina5-amia.html")
+
+}
 
 
 function luz () {
@@ -244,8 +299,8 @@ function cuadroFinal () {
                 fill (255, 255);
                 textAlign (CENTER);
                 textFont ('Courier New');
-                textSize (20);
-                text ( "Oculta de la luz en las tinieblas de las cavernas primordiales, me había familiarizado con los misterios oscuros de la vieja Tierra. Hay una astucia oculta en el decadente orden cósmico que me ha atrapado. Buenos Aires ha sido llamada la ciudad de los encuentros, pero es más que eso: es la ciudad de los velos de atardecer tiernos sobre la ruina, donde se permite que el horror no muerto cruce el abismo que se abre entre la conciencia y la materia. Formas sin nombre acechan aún en los lugares tenebrosos del mundo... 𝑏̥̊⃝𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝𝑙̥̊⃝𝑏̥̊⃝ｂⓐｂ𝐄𝓛𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝ʅǝqɐq𝑙̥̊⃝",
+                textSize (14);
+                text ( "Así, el fenómeno más simple, y para colmo el más elemental —el de la nutrición— es un ejemplo típico de esta interacción maléfica, ya que el acto mismo de nutrirse, de sostener la vida, implica específicamente la muerte de otras especies vivientes. Cada nacimiento, cada perpetuación de la vida, aumenta el dominio de la muerte. Es un círculo sin fin, tan vertiginoso como el torbellino de las estrellas o el ciclo del tiempo. En este círculo interminable, el simple hecho de vivir, de respirar, alimentarse, dormir y despertar, implica la existencia y el crecimiento del mal. Lo que los darwinistas llaman selección natural y la supervivencia del más apto son la prueba flagrante de la depravación fundamental del universo. Pues, en última instancia, si este mundo fuera la obra de un Dios bueno y justo —y no la de un demiurgo incompetente y profundamente malévolo— habría que imputar a ese Dios los pensamientos e imaginaciones más infames, los actos de represión más despiadados. Pues ¿cómo podría un Dios supremo haber concebido las increíbles secuencias, mecanismos, masacres y aniquilaciones que constituyen la práctica misma de la vida? ... 𝑏̥̊⃝𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝𝑙̥̊⃝𝑏̥̊⃝ｂⓐｂ𝐄𝓛𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝ʅǝqɐq𝑙̥̊⃝",
                      25, 25, 315, 615);
             pop();
 

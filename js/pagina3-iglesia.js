@@ -28,6 +28,8 @@ let nexoY3 = 1255;
 let nexoX4 = 180;
 let nexoY4 = 1650;
 
+let bandera1 = false;
+
 
 function preload () {
 
@@ -92,6 +94,14 @@ function draw() {
 
     pop();
 
+    push ();
+        if (bandera1) {
+
+        cuadroFinal ();
+
+
+        }
+    pop ();
 
 
 }
@@ -256,7 +266,10 @@ function textoEspiral() {
     if (botonNexo < nexoRadio) {
 
 
-    location.replace("Pagina1-congreso.html")
+            bandera1 = true;
+
+            setTimeout(cambiarPagina1, 20000)
+        
 
     }
     
@@ -265,8 +278,9 @@ function textoEspiral() {
 
     if (botonNexo2 < nexoRadio) {
 
+            bandera1 = true;
 
-    location.replace("pagina2-barolo.html")
+            setTimeout(cambiarPagina2, 20000)
 
     }
 
@@ -275,8 +289,10 @@ function textoEspiral() {
 
     if (botonNexo3 < nexoRadio) {
 
+            bandera1 = true;
 
-    location.replace("pagina5-amia.html")
+            setTimeout(cambiarPagina3, 20000)
+
 
     }
 
@@ -285,8 +301,57 @@ function textoEspiral() {
 
     if (botonNexo4 < nexoRadio) {
 
+            bandera1 = true;
 
-    location.replace("pagina6-once.html")
+            setTimeout(cambiarPagina4, 20000)
 
     }
   }
+
+  function cambiarPagina1 () {
+
+
+    location.replace("Pagina1-congreso.html")
+
+}
+
+function cambiarPagina2 () {
+
+
+    location.replace("pagina2-barolo.html")
+
+}
+
+function cambiarPagina3 () {
+
+
+    location.replace("pagina5-amia.html")
+
+}
+
+function cambiarPagina4 () {
+
+
+    location.replace("pagina6-once.html")
+}
+
+
+  function cuadroFinal () {
+
+
+            push();
+                rectMode (CORNERS);
+                stroke (255)
+                fill (0, 200)
+                rect (20, 20, 340, 1980)
+            pop();
+            push();
+                fill (255, 255);
+                textAlign (CENTER);
+                textFont ('Courier New');
+                textSize (20);
+                text ( "Tenía entonces toda la tierra una sola lengua y unas mismas palabras. Y aconteció que, cuando salieron de oriente, hallaron una llanura en la tierra de Sinar, y se asentaron allí. Y se dijeron unos a otros: Vamos, hagamos ladrillo y cozámoslo con fuego. Y les sirvió el ladrillo en lugar de piedra, y el asfalto en lugar de mezcla. Y dijeron: Vamos, edifiquémonos una ciudad y una torre, cuya cúspide llegue al cielo; y hagámonos un nombre, por si fuéremos esparcidos sobre la faz de toda la tierra. Y descendió Jehová para ver la ciudad y la torre que edificaban los hijos de los hombres. Y dijo Jehová: He aquí el pueblo es uno, y todos estos tienen un solo lenguaje; y han comenzado la obra, y nada les hará desistir ahora de lo que han pensado hacer. Ahora, pues, descendamos, y confundamos allí su lengua, para que ninguno entienda el habla de su compañero. Así los esparció Jehová desde allí sobre la faz de toda la tierra, y dejaron de edificar la ciudad. Por esto fue llamado el nombre de ella Babel, porque allí confundió Jehová el lenguaje de toda la tierra, y desde allí los esparció sobre la faz de toda la tierra ... 𝑏̥̊⃝𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝𝑙̥̊⃝𝑏̥̊⃝ｂⓐｂ𝐄𝓛𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝ʅǝqɐq𝑙̥̊⃝ ",
+                     180, 1020, 315, 1980);
+            pop();
+
+}
