@@ -152,9 +152,11 @@ let lat = 0;
 let lon = 0;
 let acc = 0; // precisión del GPS
 
-tomarUbicacion ();
+let redireccionando = false;
+
 coordenadasLugares ();
-cargarPaginaGPS ();
+
+tomarUbicacion ();
 
 
 function tomarUbicacion () {
@@ -163,9 +165,15 @@ function tomarUbicacion () {
   if (navigator.geolocation) {
     navigator.geolocation.watchPosition(
       (position) => {
+
+        if (redireccionando) return;
+
         lat = position.coords.latitude;
         lon = position.coords.longitude;
         acc = position.coords.accuracy; // precisión en metros
+
+        cargarPaginaGPS ();
+
       },
       (err) => {
         console.error("Error al obtener la ubicación:", err);
@@ -179,15 +187,17 @@ function tomarUbicacion () {
 
 function cargarPaginaGPS () {
 
-for (i = 0; i < 10; i++) {
+for (let i = 0; i < 10; i++) {
 
     if (lat > lugares[i].lat_min_sur && lat < lugares[i].lat_max_norte && 
       lon > lugares[i].lng_min_oeste && lon < lugares[i].lng_max_este) {
 
+        redireccionando = true;
+
          location.replace(lugares[i].pagina)
 
-
-      } else (preventDefault())
+        break;
+      } 
 
 
 }
