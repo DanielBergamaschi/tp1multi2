@@ -185,27 +185,34 @@ function tomarUbicacion () {
 }
 
 
-function cargarPaginaGPS () {
+function cargarPaginaGPS() {
+  if (!lugares) return;
 
-for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < lugares.length; i++) {
+    let l = lugares[i];
 
-    if (lat > lugares[i].lat_min_sur && lat < lugares[i].lat_max_norte && 
-      lon > lugares[i].lng_min_oeste && lon < lugares[i].lng_max_este) {
+    // con chat arreglamos que las longitudes sean positivas y no de error
+    let minLat = Math.min(l.lat_min_sur, l.lat_max_norte);
+    let maxLat = Math.max(l.lat_min_sur, l.lat_max_norte);
+    let minLng = Math.min(l.lng_min_oeste, l.lng_max_este);
+    let maxLng = Math.max(l.lng_min_oeste, l.lng_max_este);
 
-        redireccionando = true;
+  
+    if (lat >= minLat && lat <= maxLat && lon >= minLng && lon <= maxLng) {
+      if (window.location.href.includes(l.pagina)) break; 
 
-         location.replace(lugares[i].pagina)
-
-        break;
-      } 
-
-
+      redireccionando = true;
+      
+      window.location.replace(l.pagina);
+      break;
+    }
+  }
 }
 
 
 
 
-}
+
 
 function coordenadasLugares () {
 
@@ -215,91 +222,91 @@ function coordenadasLugares () {
     lugar: "Palacio Barolo",
     centro: { lat: -34.60944, lng: -58.38583 },
     pagina: "pagina2-barolo.html",
-    lat_min_sur: -34.60989,
-    lat_max_norte: -34.60899,
-    lng_min_oeste: -58.38638,
-    lng_max_este: -58.38528
+    lat_min_sur: -34.61079,
+    lat_max_norte: -34.60809,
+    lng_min_oeste: -58.38747,
+    lng_max_este: -58.38419
   },
   {
     lugar: "Congreso de la Nación",
     centro: { lat: -34.61000, lng: -58.39278 },
     pagina: "Pagina1-congreso.html",
-    lat_min_sur: -34.61045,
-    lat_max_norte: -34.60955,
-    lng_min_oeste: -58.39333,
-    lng_max_este: -58.39223
+    lat_min_sur: -34.61135,
+    lat_max_norte: -34.60865,
+    lng_min_oeste: -58.39442,
+    lng_max_este: -58.39114
   },
   {
     lugar: "Logia Masónica (Sede Central)",
     centro: { lat: -34.60556, lng: -58.38528 },
     pagina: "pagina4-logia.html",
-    lat_min_sur: -34.60601,
-    lat_max_norte: -34.60511,
-    lng_min_oeste: -58.38583,
-    lng_max_este: -58.38473
+    lat_min_sur: -34.60691,
+    lat_max_norte: -34.60421,
+    lng_min_oeste: -58.38692,
+    lng_max_este: -58.38364
   },
   {
     lugar: "Facultad de Ingeniería (Sede Las Heras)",
     centro: { lat: -34.58861, lng: -58.39667 },
     pagina: "pagina10-ingenieria.html",
-    lat_min_sur: -34.58906,
-    lat_max_norte: -34.58816,
-    lng_min_oeste: -58.39722,
-    lng_max_este: -58.39612
+    lat_min_sur: -34.58996,
+    lat_max_norte: -34.58726,
+    lng_min_oeste: -58.39831,
+    lng_max_este: -58.39503
   },
   {
     lugar: "Área de Artes Multimediales - UNA",
     centro: { lat: -34.59972, lng: -58.39194 },
     pagina: "pagina9-multimedia.html",
-    lat_min_sur: -34.60017,
-    lat_max_norte: -34.59927,
-    lng_min_oeste: -58.39249,
-    lng_max_este: -58.39139
+    lat_min_sur: -34.60107,
+    lat_max_norte: -34.59837,
+    lng_min_oeste: -58.39358,
+    lng_max_este: -58.39030
   },
   {
     lugar: "Facultad de Medicina (UBA)",
     centro: { lat: -34.59833, lng: -58.39833 },
     pagina: "pagina8-medicina.html",
-    lat_min_sur: -34.59878,
-    lat_max_norte: -34.59788,
-    lng_min_oeste: -58.39888,
-    lng_max_este: -58.39778
+    lat_min_sur: -34.59968,
+    lat_max_norte: -34.59698,
+    lng_min_oeste: -58.39997,
+    lng_max_este: -58.39669
   },
   {
     lugar: "AMIA",
     centro: { lat: -34.60194, lng: -58.39944 },
     pagina: "pagina5-amia.html",
-    lat_min_sur: -34.60239,
-    lat_max_norte: -34.60149,
-    lng_min_oeste: -58.39999,
-    lng_max_este: -58.39889
+    lat_min_sur: -34.60329,
+    lat_max_norte: -34.60059,
+    lng_min_oeste: -58.40108,
+    lng_max_este: -58.39780
   },
   {
     lugar: "Teatro Colón",
     centro: { lat: -34.60111, lng: -58.38306 },
     pagina: "pagina7-colon.html",
-    lat_min_sur: -34.60156,
-    lat_max_norte: -34.60066,
-    lng_min_oeste: -58.38361,
-    lng_max_este: -58.38251
+    lat_min_sur: -34.60246,
+    lat_max_norte: -34.59976,
+    lng_min_oeste: -58.38470,
+    lng_max_este: -58.38142
   },
   {
     lugar: "Iglesia San Expedito",
     centro: { lat: -34.61028, lng: -58.40333 },
     pagina: "pagina3-iglesia.html",
-    lat_min_sur: -34.61073,
-    lat_max_norte: -34.60983,
-    lng_min_oeste: -58.40388,
-    lng_max_este: -58.40278
+    lat_min_sur: -34.61163,
+    lat_max_norte: -34.60893,
+    lng_min_oeste: -58.40497,
+    lng_max_este: -58.40169
   },
   {
     lugar: "Estación Once",
     centro: { lat: -34.60861, lng: -58.40889 },
     pagina: "pagina6-once.html",
-    lat_min_sur: -34.60906,
-    lat_max_norte: -34.60816,
-    lng_min_oeste: -58.40944,
-    lng_max_este: -58.40834
+    lat_min_sur: -34.60996,
+    lat_max_norte: -34.60726,
+    lng_min_oeste: -58.41053,
+    lng_max_este: -58.40725
   }
 ];
 
