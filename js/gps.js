@@ -239,6 +239,7 @@ function coordenadasLugares () {
   {
     lugar: "Logia Masónica (Sede Central)",
     centro: { lat: -34.60556, lng: -58.38528 },
+    
     pagina: "pagina4-logia.html",
     lat_min_sur: -34.60691,
     lat_max_norte: -34.60421,
@@ -307,7 +308,16 @@ function coordenadasLugares () {
     lat_max_norte: -34.60726,
     lng_min_oeste: -58.41053,
     lng_max_este: -58.40725
-  }
+  },
+  {
+  "lugar": "prueba",
+  "centro": { "lat": -34.608419, "lng": -58.383042 },
+  "pagina": "pagina9-multimedia.html",
+  "lat_min_sur": -34.609769,
+  "lat_max_norte": -34.607069,
+  "lng_min_oeste": -58.384682,
+  "lng_max_este": -58.381402
+}
 ];
 
 
