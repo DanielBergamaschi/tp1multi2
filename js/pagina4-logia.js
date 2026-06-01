@@ -286,7 +286,7 @@ function imagen3Funcion () {
             
             bandera1 = true;
 
-            setTimeout(cambiarPagina1, 20000)
+            setTimeout(cambiarPagina1, 10000)
 
             
         } else if (mouseX >= 60 && mouseX < 60+363/4 && mouseY <=430+408/4 && mouseY >= 430) {
@@ -294,21 +294,21 @@ function imagen3Funcion () {
             
             bandera1 = true;
 
-            setTimeout(cambiarPagina2, 20000)
+            setTimeout(cambiarPagina2, 10000)
             
         }  else if (mouseX >= 80 && mouseX < 170 && mouseY <=365 && mouseY >= 275) {
 
             
             bandera1 = true;
 
-            setTimeout(cambiarPagina3, 20000)
+            setTimeout(cambiarPagina3, 10000)
             
         }  else if (mouseX >= 200 && mouseX < 290 && mouseY <=440 && mouseY >= 350) {
             
 
             bandera1 = true;
 
-            setTimeout(cambiarPagina4, 20000)
+            setTimeout(cambiarPagina4, 10000)
             
         }
     }

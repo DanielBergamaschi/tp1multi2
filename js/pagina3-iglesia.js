@@ -270,7 +270,7 @@ function textoEspiral() {
 
             bandera1 = true;
 
-            setTimeout(cambiarPagina1, 20000)
+            setTimeout(cambiarPagina1, 10000)
         
 
     }
@@ -282,7 +282,7 @@ function textoEspiral() {
 
             bandera1 = true;
 
-            setTimeout(cambiarPagina2, 20000)
+            setTimeout(cambiarPagina2, 10000)
 
     }
 
@@ -293,7 +293,7 @@ function textoEspiral() {
 
             bandera1 = true;
 
-            setTimeout(cambiarPagina3, 20000)
+            setTimeout(cambiarPagina3, 10000)
 
 
     }
@@ -305,7 +305,7 @@ function textoEspiral() {
 
             bandera1 = true;
 
-            setTimeout(cambiarPagina4, 20000)
+            setTimeout(cambiarPagina4, 10000)
 
     }
   }

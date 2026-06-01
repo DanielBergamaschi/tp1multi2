@@ -100,7 +100,7 @@ function mousePressed () {
             
             bandera1 = true;
 
-            setTimeout(cambiarPagina1, 20000)     
+            setTimeout(cambiarPagina1, 10000)     
 
 
             
@@ -109,14 +109,14 @@ function mousePressed () {
             
             bandera1 = true;
 
-            setTimeout(cambiarPagina2, 20000)
+            setTimeout(cambiarPagina2, 10000)
 
             
         } else if (mouseX >= 190 && mouseX < 270 && mouseY <= 330 && mouseY >= 280) {
             
              bandera1 = true;
 
-            setTimeout(cambiarPagina3, 20000)
+            setTimeout(cambiarPagina3, 10000)
 
 
             
@@ -125,7 +125,7 @@ function mousePressed () {
             
             bandera1 = true;
 
-            setTimeout(cambiarPagina4, 20000)
+            setTimeout(cambiarPagina4, 10000)
 
             
         }
