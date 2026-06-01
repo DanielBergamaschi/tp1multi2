@@ -14,6 +14,8 @@ let audioActivo = false;
 let ultimoToque = -20;
 let lenteX = 180;
 let lenteY = 320;
+let mostrarTextoFinal = false;
+let paginaPendiente = "";
 
 let intensidadLuz = 15;
 let aumentoIntensidad = 1;
@@ -60,6 +62,10 @@ function draw(){
   dibujarSellos();
   lenteInteractiva();
   textos();
+
+  if(mostrarTextoFinal){
+    cuadroFinal();
+  }
 }
 
 function fondoVideo(){
@@ -360,6 +366,42 @@ function textos(){
   pop();
 }
 
+function iniciarTransicion(pagina){
+  if(mostrarTextoFinal){
+    return;
+  }
+
+  mostrarTextoFinal = true;
+  paginaPendiente = pagina;
+
+  setTimeout(() => {
+    location.replace(paginaPendiente);
+  }, 10000);
+}
+
+function cuadroFinal(){
+  push();
+  stroke(255);
+  strokeWeight(1);
+  fill(0, 220);
+  rect(20, 20, 320, 600);
+  pop();
+
+  push();
+  fill(255);
+  textAlign(CENTER);
+  textFont("Courier New");
+  textSize(19);
+  text(
+    "Oculta de la luz en las tinieblas de las cavernas primordiales, me había familiarizado con los misterios oscuros de la vieja Tierra. Hay una astucia oculta en el decadente orden cósmico que me ha atrapado. Buenos Aires ha sido llamada la ciudad de los encuentros, pero es más que eso: es la ciudad de los velos de atardecer tiernos sobre la ruina, donde se permite que el horror no muerto cruce el abismo que se abre entre la conciencia y la materia. Formas sin nombre acechan aún en los lugares tenebrosos del mundo... 𝑏̥̊⃝𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝𝑙̥̊⃝𝑏̥̊⃝ｂⓐｂ𝐄𝓛𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝ʅǝqɐq𝑙̥̊⃝",
+    26,
+    30,
+    308,
+    585
+  );
+  pop();
+}
+
 function activarAudio(){
   if(videoCongreso && !audioActivo){
     videoCongreso.elt.muted = false;
@@ -404,7 +446,7 @@ function manejarToque(x, y){
 
   for(let link of linksOcultos){
     if(x >= link.x && x <= link.x + link.w && y >= link.y && y <= link.y + link.h){
-      location.replace(link.pagina);
+      iniciarTransicion(link.pagina);
       return false;
     }
   }
