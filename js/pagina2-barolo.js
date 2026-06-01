@@ -12,7 +12,9 @@ let video;
 let nexoX;
 let nexoY;
 let nexo_radio = 45;
-let random_nexos;
+let random_nexo;
+
+let bandera1 = false;
 
 let nexos = [
 
@@ -80,8 +82,16 @@ function draw() {
 
   textos();
 
+  if(bandera1) {
+     
+    cuadroFinal();
+
+
+    };
+  }
+
   
-}
+
 
 function texto_espiral() {
   push();
@@ -198,8 +208,31 @@ function mousePressed() {
 
   if (boton_nexo < nexo_radio) {
 
-    nexo();
+    //nexo();
+
+     bandera1 = true;
+
+            setTimeout(nexo, 10000)
 
   }
+
+}
+
+function cuadroFinal () {
+
+
+            push();
+                stroke (255)
+                fill (0, 200)
+                rect (20, 20, 320, 550)
+            pop();
+            push();
+                fill (255, 255);
+                textAlign (CENTER);
+                textFont ('Courier New');
+                textSize (20);
+                text ( "Oculta de la luz en las tinieblas de las cavernas primordiales..",
+                     25, 25, 315, 615);
+            pop();
 
 }

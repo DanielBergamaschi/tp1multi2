@@ -13,6 +13,7 @@ let urls = [
   "pagina10-ingenieria.html"
 ];
 
+let bandera1 = false
 
 let botonesX = [];
 let botonesY = [];
@@ -132,9 +133,13 @@ function draw() {
 
   dibujarLogos();
 
-  nexos();
+  
+  //nexos();
 
-  textos();
+  if (bandera1) {
+    cuadroFinal();
+  }
+
   
 }
 
@@ -188,7 +193,7 @@ function nexos() {
   
   let sobreCualquierBoton = false;
 
-for (let i = 0; i < 4; i++) {
+ for (let i = 0; i < 4; i++) {
     let d = dist(mouseX, mouseY, botonesX[i], botonesY[i]);
     
     if (d < radioBoton / 2) {
@@ -215,7 +220,30 @@ function mousePressed() {
     let d = dist(mouseX, mouseY, botonesX[i], botonesY[i]);
     
     if (d < radioBoton / 2) {
+      bandera1 = true;
+
+      setTimeout(nexos, 15000);
+
       location.replace(urls[i]); 
     }
   }
+}
+
+function cuadroFinal () {
+
+
+            push();
+                stroke (255)
+                fill (0, 200)
+                rect (20, 20, 320, 550)
+            pop();
+            push();
+                fill (255, 255);
+                textAlign (CENTER);
+                textFont ('Courier New');
+                textSize (20);
+                text ( "Oculta de la luz en las tinieblas de las cavernas primordiales..",
+                     25, 25, 315, 615);
+            pop();
+
 }

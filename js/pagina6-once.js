@@ -12,6 +12,8 @@ let ventana_7;
 let ventana_8;
 let ventana_9;
 
+let bandera1 = false;
+
 function preload(){
   
   edificio = loadImage('img/pagina6_once/edificios.png');
@@ -71,7 +73,8 @@ tint(255, 90);
 image(edificio, offsetX, offsetY);
 
 noTint();
-  
+
+
   armar_ventana_1();
   armar_ventana_2();
   armar_ventana_3();
@@ -98,6 +101,12 @@ noTint();
   image(ventana_9, 262, 450);
   
   textos();
+
+  if (bandera1) {
+
+  cuadroFinal();
+}
+  
 }
 
 
@@ -243,6 +252,7 @@ function nexos() {
     mouseY > 50 &&
     mouseY < 120
   ) {
+    
     location.replace("pagina5-amia.html");
   }
 
@@ -325,5 +335,32 @@ function textos() {
 
 
 function mousePressed() {
-  nexos();
+
+
+
+  bandera1 = true;
+
+  setTimeout(nexos, 15000);
+
+
+
+ // nexos();
+}
+
+function cuadroFinal () {
+
+            push();
+                stroke (255)
+                fill (0, 200)
+                rect (20, 20, 320, 550)
+            pop();
+            push();
+                fill (255, 255);
+                textAlign (CENTER);
+                textFont ('Courier New');
+                textSize (20);
+                text ( "Oculta de la luz en las tinieblas de las cavernas primordiales..",
+                     25, 25, 315, 615);
+            pop();
+
 }
