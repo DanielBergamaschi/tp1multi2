@@ -226,7 +226,7 @@ function iniciarTransicion(pagina){
 
   setTimeout(() => {
     location.replace(paginaPendiente);
-  }, 10000);
+  }, 15000);
 }
 
 function cuadroFinal(){
@@ -241,9 +241,9 @@ function cuadroFinal(){
   fill(255);
   textAlign(CENTER);
   textFont("Courier New");
-  textSize(19);
+  textSize(17);
   text(
-    "Oculta de la luz en las tinieblas de las cavernas primordiales, me había familiarizado con los misterios oscuros de la vieja Tierra. Hay una astucia oculta en el decadente orden cósmico que me ha atrapado. Buenos Aires ha sido llamada la ciudad de los encuentros, pero es más que eso: es la ciudad de los velos de atardecer tiernos sobre la ruina, donde se permite que el horror no muerto cruce el abismo que se abre entre la conciencia y la materia. Formas sin nombre acechan aún en los lugares tenebrosos del mundo... 𝑏̥̊⃝𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝𝑙̥̊⃝𝑏̥̊⃝ｂⓐｂ𝐄𝓛𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝ʅǝqɐq𝑙̥̊⃝",
+    "Incapaz de revertir sus propias tendencias destructivas el internet ha dado un giro catastrófico y no tiene reparación. No solo las infinitas posibilidades han implosionado en el realismo de las plataformas, sino que también nos enfrentamos al horizonte existencial de la finitud: el colapso de la imaginación colectiva. La pérdida de diversidad es entrópica y es tanto esterilizante como frágil, colapsando sobre sí misma. Experimentar el  internet es experimentar la extinción. El colapso es real, lo que está en juego aquí es un colapso de la imaginación colectiva de una tecnología que juega un papel fundamental en la vida cotidiana de miles de millones.",
     26,
     30,
     308,

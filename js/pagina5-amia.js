@@ -240,7 +240,7 @@ function iniciarTransicion(pagina){
 
   setTimeout(() => {
     location.replace(paginaPendiente);
-  }, 10000);
+  }, 15000);
 }
 
 function cuadroFinal(){
@@ -257,7 +257,7 @@ function cuadroFinal(){
   textFont("Courier New");
   textSize(19);
   text(
-    "Oculta de la luz en las tinieblas de las cavernas primordiales, me había familiarizado con los misterios oscuros de la vieja Tierra. Hay una astucia oculta en el decadente orden cósmico que me ha atrapado. Buenos Aires ha sido llamada la ciudad de los encuentros, pero es más que eso: es la ciudad de los velos de atardecer tiernos sobre la ruina, donde se permite que el horror no muerto cruce el abismo que se abre entre la conciencia y la materia. Formas sin nombre acechan aún en los lugares tenebrosos del mundo... 𝑏̥̊⃝𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝𝑙̥̊⃝𝑏̥̊⃝ｂⓐｂ𝐄𝓛𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝ʅǝqɐq𝑙̥̊⃝",
+    "Las plataformas que se nos vendieron como herramientas de 'comunicación' y 'comunidad' son, en realidad, los sensores de un inmenso sistema de vigilancia y combate. El lenguaje de la amistad y el intercambio social ha sido convertido en la materia prima para el perfilado de objetivos en la ciberguerra. Cada vez que escribimos, compartimos o comentamos, estamos alimentando el inconsciente algorítmico que la ciberguerra utiliza para predecir, controlar y, en última instancia, neutralizar cualquier forma de oposición.",
     26,
     30,
     308,

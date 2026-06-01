@@ -376,7 +376,7 @@ function iniciarTransicion(pagina){
 
   setTimeout(() => {
     location.replace(paginaPendiente);
-  }, 10000);
+  }, 15000);
 }
 
 function cuadroFinal(){
@@ -391,9 +391,9 @@ function cuadroFinal(){
   fill(255);
   textAlign(CENTER);
   textFont("Courier New");
-  textSize(19);
+  textSize(16);
   text(
-    "Oculta de la luz en las tinieblas de las cavernas primordiales, me había familiarizado con los misterios oscuros de la vieja Tierra. Hay una astucia oculta en el decadente orden cósmico que me ha atrapado. Buenos Aires ha sido llamada la ciudad de los encuentros, pero es más que eso: es la ciudad de los velos de atardecer tiernos sobre la ruina, donde se permite que el horror no muerto cruce el abismo que se abre entre la conciencia y la materia. Formas sin nombre acechan aún en los lugares tenebrosos del mundo... 𝑏̥̊⃝𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝𝑙̥̊⃝𝑏̥̊⃝ｂⓐｂ𝐄𝓛𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝ʅǝqɐq𝑙̥̊⃝",
+    " La ciberguerra es, en esencia, una fábrica de ignorancia. Su objetivo no es solo destruir la infraestructura del enemigo, sino degradar su capacidad de distinguir lo verdadero de lo falso, lo real de lo simulado. La propaganda ya no es una cuestión de persuadir a las masas con una sola ideología, sino de inundar los canales de comunicación con tal cantidad de ruido, contradicciones y teorías de conspiración que la noción misma de una verdad compartida se disuelva. A través de bots y algoritmos, la ciberguerra utiliza el lenguaje natural para simular consenso o disenso. Esta comunicación sintética crea una 'niebla de guerra' informativa donde el ciudadano común queda paralizado por la confusión y la desconfianza hacia todas las fuentes de autoridad.",
     26,
     30,
     308,
