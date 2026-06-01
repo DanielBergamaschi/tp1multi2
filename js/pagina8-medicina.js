@@ -55,7 +55,8 @@ function draw() {
 
 
     randomGaleria = floor(random (0, 12));
-
+    
+    textos ();
 
     push();
         tint (255, 100);
@@ -102,6 +103,7 @@ function draw() {
 
     }
 
+    
 
 }
 
@@ -300,8 +302,34 @@ function cuadroFinal () {
                 textAlign (CENTER);
                 textFont ('Courier New');
                 textSize (14);
-                text ( "Así, el fenómeno más simple, y para colmo el más elemental —el de la nutrición— es un ejemplo típico de esta interacción maléfica, ya que el acto mismo de nutrirse, de sostener la vida, implica específicamente la muerte de otras especies vivientes. Cada nacimiento, cada perpetuación de la vida, aumenta el dominio de la muerte. Es un círculo sin fin, tan vertiginoso como el torbellino de las estrellas o el ciclo del tiempo. En este círculo interminable, el simple hecho de vivir, de respirar, alimentarse, dormir y despertar, implica la existencia y el crecimiento del mal. Lo que los darwinistas llaman selección natural y la supervivencia del más apto son la prueba flagrante de la depravación fundamental del universo. Pues, en última instancia, si este mundo fuera la obra de un Dios bueno y justo —y no la de un demiurgo incompetente y profundamente malévolo— habría que imputar a ese Dios los pensamientos e imaginaciones más infames, los actos de represión más despiadados. Pues ¿cómo podría un Dios supremo haber concebido las increíbles secuencias, mecanismos, masacres y aniquilaciones que constituyen la práctica misma de la vida? ... 𝑏̥̊⃝𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝𝑙̥̊⃝𝑏̥̊⃝ｂⓐｂ𝐄𝓛𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝ʅǝqɐq𝑙̥̊⃝",
+                text ( "Así, el fenómeno más simple, y para colmo el más elemental —el de la nutrición— es un ejemplo típico de esta interacción maléfica, ya que el acto mismo de nutrirse, de sostener la vida, implica específicamente la muerte de otras especies vivientes. Cada nacimiento, cada perpetuación de la vida, aumenta el dominio de la muerte. Es un círculo sin fin, tan vertiginoso como el torbellino de las estrellas o el ciclo del tiempo. En este círculo interminable, el simple hecho de vivir, de respirar, alimentarse, dormir y despertar, implica la existencia y el crecimiento del mal. Lo que los darwinistas llaman selección natural y la supervivencia del más apto son la prueba flagrante de la depravación fundamental del universo. Pues, en última instancia, si este mundo fuera la obra de un Dios bueno y justo —y no la de un demiurgo incompetente y profundamente malévolo— habría que imputar a ese Dios los pensamientos e imaginaciones más infames, los actos de represión más despiadados. Pues ¿cómo podría un Dios supremo haber concebido las increíbles secuencias, mecanismos, masacres y aniquilaciones que constituyen la práctica misma de la vida?...",
                      25, 25, 315, 615);
             pop();
 
+}
+
+function textos() {
+    push();
+    fill(255, 180);
+    textSize(10);
+    textFont('sans-serif'); 
+    
+    let separacion = 300; 
+    let velocidad = frameCount * 1; 
+    let totalCopias = 5;
+    let loop_total = totalCopias * separacion;
+    
+    // coordenadas
+    for (let i = 0; i < totalCopias; i++) {
+        let yPos = (velocidad + (i * separacion)) % loop_total;
+
+        push();
+        translate(345, yPos - separacion); 
+        rotate(HALF_PI);
+        text('-34.59833, -58.39833 -34.59833, -58.39833 -34.59833, -58.39833', 0, 0);
+        pop();
+    }
+    
+    pop();
+  
 }

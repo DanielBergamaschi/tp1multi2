@@ -60,6 +60,8 @@ function draw() {
 
   crearGaleria ()
     
+  textos ();
+
   luz ();
     
   cuadradosDistorsion ();
@@ -350,8 +352,35 @@ function cambiarPagina4 () {
                 textAlign (CENTER);
                 textFont ('Courier New');
                 textSize (20);
-                text ( "Tenía entonces toda la tierra una sola lengua y unas mismas palabras. Y aconteció que, cuando salieron de oriente, hallaron una llanura en la tierra de Sinar, y se asentaron allí. Y se dijeron unos a otros: Vamos, hagamos ladrillo y cozámoslo con fuego. Y les sirvió el ladrillo en lugar de piedra, y el asfalto en lugar de mezcla. Y dijeron: Vamos, edifiquémonos una ciudad y una torre, cuya cúspide llegue al cielo; y hagámonos un nombre, por si fuéremos esparcidos sobre la faz de toda la tierra. Y descendió Jehová para ver la ciudad y la torre que edificaban los hijos de los hombres. Y dijo Jehová: He aquí el pueblo es uno, y todos estos tienen un solo lenguaje; y han comenzado la obra, y nada les hará desistir ahora de lo que han pensado hacer. Ahora, pues, descendamos, y confundamos allí su lengua, para que ninguno entienda el habla de su compañero. Así los esparció Jehová desde allí sobre la faz de toda la tierra, y dejaron de edificar la ciudad. Por esto fue llamado el nombre de ella Babel, porque allí confundió Jehová el lenguaje de toda la tierra, y desde allí los esparció sobre la faz de toda la tierra ... 𝑏̥̊⃝𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝𝑙̥̊⃝𝑏̥̊⃝ｂⓐｂ𝐄𝓛𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝ʅǝqɐq𝑙̥̊⃝ ",
+                text ( "Tenía entonces toda la tierra una sola lengua y unas mismas palabras. Y aconteció que, cuando salieron de oriente, hallaron una llanura en la tierra de Sinar, y se asentaron allí. Y se dijeron unos a otros: Vamos, hagamos ladrillo y cozámoslo con fuego. Y les sirvió el ladrillo en lugar de piedra, y el asfalto en lugar de mezcla. Y dijeron: Vamos, edifiquémonos una ciudad y una torre, cuya cúspide llegue al cielo; y hagámonos un nombre, por si fuéremos esparcidos sobre la faz de toda la tierra. Y descendió Jehová para ver la ciudad y la torre que edificaban los hijos de los hombres. Y dijo Jehová: He aquí el pueblo es uno, y todos estos tienen un solo lenguaje; y han comenzado la obra, y nada les hará desistir ahora de lo que han pensado hacer. Ahora, pues, descendamos, y confundamos allí su lengua, para que ninguno entienda el habla de su compañero. Así los esparció Jehová desde allí sobre la faz de toda la tierra, y dejaron de edificar la ciudad. Por esto fue llamado el nombre de ella Babel, porque allí confundió Jehová el lenguaje de toda la tierra, y desde allí los esparció sobre la faz de toda la tierra...",
                      180, 1020, 315, 1980);
             pop();
 
+}
+
+function textos() {
+    push();
+    fill(255, 180);
+    textSize(10);
+    textFont('sans-serif'); 
+    
+    let separacion = 300; 
+    let velocidad = frameCount * 1; 
+    let totalCopias = 5;
+    let loop_total = totalCopias * separacion;
+    
+    // coordenadas
+    for (let i = 0; i < totalCopias; i++) {
+        let yPos = (velocidad + (i * separacion)) % loop_total;
+
+        push();
+        translate(345, yPos - separacion); 
+        rotate(HALF_PI);
+        fill (50, intensidadLuz);
+        text('-34.61028, -58.40333-34.61028, -58.40333-34.61028, -58.40333 -34.61028, -58.40333 -34.61028, -58.40333', 0, 0);
+        pop();
+    }
+    
+    pop();
+  
 }

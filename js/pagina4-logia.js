@@ -121,9 +121,10 @@ function draw() {
             imagen1Funcion ();
             cuadradosTexto();
             
-
-
         }
+
+        textos();
+
     
 }
 
@@ -141,6 +142,32 @@ function cajaTexto () {
 
         randomGaleria = floor(random(8, 18));
 
+}
+
+function textos() {
+    push();
+    fill(255, 180);
+    textSize(10);
+    textFont('sans-serif'); 
+    
+    let separacion = 300; 
+    let velocidad = frameCount * 1; 
+    let totalCopias = 5;
+    let loop_total = totalCopias * separacion;
+    
+    // coordenadas
+    for (let i = 0; i < totalCopias; i++) {
+        let yPos = (velocidad + (i * separacion)) % loop_total;
+
+        push();
+        translate(345, yPos - separacion); 
+        rotate(HALF_PI);
+        text('-34.60556, -58.38528 -34.60556, -58.38528 -34.60556, -58.38528', 0, 0);
+        pop();
+    }
+    
+    pop();
+  
 }
 
 function cuadradosTexto () {
@@ -362,7 +389,7 @@ function cuadroFinal () {
                 textAlign (CENTER);
                 textFont ('Courier New');
                 textSize (20);
-                text ( "Oculta de la luz en las tinieblas de las cavernas primordiales, me había familiarizado con los misterios oscuros de la vieja Tierra. Hay una astucia oculta en el decadente orden cósmico que me ha atrapado. Buenos Aires ha sido llamada la ciudad de los encuentros, pero es más que eso: es la ciudad de los velos de atardecer tiernos sobre la ruina, donde se permite que el horror no muerto cruce el abismo que se abre entre la conciencia y la materia. Formas sin nombre acechan aún en los lugares tenebrosos del mundo... 𝑏̥̊⃝𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝𝑙̥̊⃝𝑏̥̊⃝ｂⓐｂ𝐄𝓛𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝ʅǝqɐq𝑙̥̊⃝",
+                text ( "Oculta de la luz en las tinieblas de las cavernas primordiales, me había familiarizado con los misterios oscuros de la vieja Tierra. Hay una astucia oculta en el decadente orden cósmico que me ha atrapado. Buenos Aires ha sido llamada la ciudad de los encuentros, pero es más que eso: es la ciudad de los velos de atardecer tiernos sobre la ruina, donde se permite que el horror no muerto cruce el abismo que se abre entre la conciencia y la materia. Formas sin nombre acechan aún en los lugares tenebrosos del mundo...",
                      25, 25, 315, 615);
             pop();
 

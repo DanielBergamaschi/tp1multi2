@@ -24,6 +24,7 @@ function draw() {
   background(0, 60);
   frameRate (20);
 
+    textos ();
 
    push();
         tint (255, 100);
@@ -51,6 +52,8 @@ function draw() {
 
 
     }
+
+    
 
 }
 
@@ -169,8 +172,34 @@ function cuadroFinal () {
                 textAlign (CENTER);
                 textFont ('Courier New');
                 textSize (14.5);
-                text ( "Babel es equivalente al Infocalipsis. Es un virus que tiende a dividir las lenguas en vez de hacerlas converger. El cerebro humano recién nacido no tiene estructura. A medida que el niño aprende un idioma, el cerebro en desarrollo se estructura adecuadamente, y el lenguaje queda grabado en el Hardware. Un virus del lenguaje es un virus informático que puede convertirse en un virus neurológico, puede modificar el ADN del núcleo celular. El metaverso es una estructura ficticia hecha de programas y los programas no son sino una forma del habla: una que los ordenadores pueden entender. Hemos dejado de ser seres humanos para pasar a ser vectores o huéspedes de información autorreplicante. La propia sociedad es producto de la infección del virus y la transición de las sociedades nómades a las agriculturas se produjo a partir de la programación neurolingüística. En forma binaria, un virus puede rebotar de un sitio a otro del universo a la velocidad de la luz. Existe una relación directa entre magia, programación y virosidad ... 𝑏̥̊⃝𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝𝑙̥̊⃝𝑏̥̊⃝ｂⓐｂ𝐄𝓛𝑎̥̊⃝𝑏̥̊⃝𝑒̥̊⃝ʅǝqɐq𝑙̥̊⃝",
+                text ( "Babel es equivalente al Infocalipsis. Es un virus que tiende a dividir las lenguas en vez de hacerlas converger. El cerebro humano recién nacido no tiene estructura. A medida que el niño aprende un idioma, el cerebro en desarrollo se estructura adecuadamente, y el lenguaje queda grabado en el Hardware. Un virus del lenguaje es un virus informático que puede convertirse en un virus neurológico, puede modificar el ADN del núcleo celular. El metaverso es una estructura ficticia hecha de programas y los programas no son sino una forma del habla: una que los ordenadores pueden entender. Hemos dejado de ser seres humanos para pasar a ser vectores o huéspedes de información autorreplicante. La propia sociedad es producto de la infección del virus y la transición de las sociedades nómades a las agriculturas se produjo a partir de la programación neurolingüística. En forma binaria, un virus puede rebotar de un sitio a otro del universo a la velocidad de la luz. Existe una relación directa entre magia, programación y virosidad...",
                      180, 320, 315, 615);
             pop();
 
+}
+
+function textos() {
+    push();
+    fill(255, 180);
+    textSize(10);
+    textFont('sans-serif'); 
+    
+    let separacion = 300; 
+    let velocidad = frameCount * 1; 
+    let totalCopias = 5;
+    let loop_total = totalCopias * separacion;
+    
+    // coordenadas
+    for (let i = 0; i < totalCopias; i++) {
+        let yPos = (velocidad + (i * separacion)) % loop_total;
+
+        push();
+        translate(345, yPos - separacion); 
+        rotate(HALF_PI);
+        text('-34.59972, -58.39194 -34.59972, -58.39194 -34.59972, -58.39194', 0, 0);
+        pop();
+    }
+    
+    pop();
+  
 }
