@@ -97,6 +97,7 @@ noTint();
   image(ventana_8, 151, 450); 
   image(ventana_9, 262, 450);
   
+  textos();
 }
 
 
@@ -294,6 +295,32 @@ function nexos() {
   ) {
     location.replace("pagina2-barolo.html");
   }
+}
+
+function textos() {
+  push();
+  fill(255, 180);
+  textSize(10);
+  textFont('sans-serif'); 
+  
+  let separacion = 250; 
+  let velocidad = frameCount * 1; 
+  let totalCopias = 5;
+  let loop_total = totalCopias * separacion;
+  
+  // coordenadas
+  for (let i = 0; i < totalCopias; i++) {
+    let yPos = (velocidad + (i * separacion)) % loop_total;
+
+    push();
+    translate(345, yPos - separacion); 
+    rotate(HALF_PI);
+    text( '34°36′34″S 58°23′09″ - 34.60944, -58.38583', 0, 0);
+    pop();
+  }
+  
+  pop();
+  
 }
 
 

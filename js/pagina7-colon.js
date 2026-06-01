@@ -133,6 +133,8 @@ function draw() {
   dibujarLogos();
 
   nexos();
+
+  textos();
   
 }
 
@@ -152,6 +154,32 @@ function dibujarLogos() {
   pop(); */
 
 
+}
+
+function textos() {
+  push();
+  fill(255, 180);
+  textSize(10);
+  textFont('sans-serif'); 
+  
+  let separacion = 250; 
+  let velocidad = frameCount * 1; 
+  let totalCopias = 5;
+  let loop_total = totalCopias * separacion;
+  
+  // coordenadas
+  for (let i = 0; i < totalCopias; i++) {
+    let yPos = (velocidad + (i * separacion)) % loop_total;
+
+    push();
+    translate(345, yPos - separacion); 
+    rotate(HALF_PI);
+    text( '34°36′31″S 58°24′32″O / -34.60861, -58.40889', 0, 0);
+    pop();
+  }
+  
+  pop();
+  
 }
 
 function nexos() {
