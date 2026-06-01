@@ -14,7 +14,7 @@ function preload(){
 
 function setup(){
   pixelDensity(1);
-  let canvas = createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(360, 640);
   canvas.parent("canvasDiv");
   frameRate(24);
 
@@ -250,11 +250,5 @@ function touchMoved(){
 }
 
 function windowResized(){
-
-  resizeCanvas(windowWidth, windowHeight);
-  puntoCarga.x = width / 2;
-  puntoCarga.y = height / 2;
-  crearNodos();
-  crearLinksOcultos();
-
+  return false;
 }

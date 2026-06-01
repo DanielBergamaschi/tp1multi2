@@ -29,7 +29,7 @@ function preload(){
 
 function setup(){
   pixelDensity(1);
-  let canvas = createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(360, 640);
   canvas.parent("canvasDiv");
   frameRate(15);
 
@@ -163,23 +163,29 @@ function textoEspiral(){
 }
 
 function crearPalabras(){
+  palabras = [];
+
   const textos = [
     "PODER", "CONTROL", "ESTADO", "LEY", "SOMBRAS",
     "POLITICA", "NACION", "SISTEMA", "CONGRESO"
   ];
 
   const fuentes = [fuenteBlue, fuenteLed, fuenteFaith, fuenteQuake];
+  const baseTam = min(width, height);
 
   for(let i = 0; i < textos.length; i++){
     palabras.push({
       texto: textos[i],
       fuente: fuentes[i % fuentes.length],
-      x: random(-35, width - 35),
-      y: random(25, height - 25),
-      tam: random(14, 28),
-      velX: random(-0.45, 0.45),
-      velY: random(-0.35, 0.35),
-      alpha: random(70, 150)
+      x: random(20, width - 20),
+      y: random(height * 0.10, height * 0.92),
+      tam: random(baseTam * 0.040, baseTam * 0.086),
+      velX: random([-1, 1]) * random(0.55, 1.65),
+      velY: random([-1, 1]) * random(0.35, 1.15),
+      giro: random(-0.22, 0.22),
+      giroVel: random([-1, 1]) * random(0.004, 0.014),
+      fase: random(TWO_PI),
+      alpha: random(88, 170)
     });
   }
 }
@@ -196,21 +202,24 @@ function palabrasMoviles(){
   textAlign(CENTER, CENTER);
 
   for(let palabra of palabras){
-    palabra.x += palabra.velX + sin(frameCount * 0.015) * 0.12;
-    palabra.y += palabra.velY + cos(frameCount * 0.012) * 0.10;
+    palabra.x += palabra.velX + sin(frameCount * 0.06 + palabra.fase) * 0.45;
+    palabra.y += palabra.velY + cos(frameCount * 0.05 + palabra.fase) * 0.35;
+    palabra.giro += palabra.giroVel;
 
-    if(palabra.x > width + 70) palabra.x = -70;
-    if(palabra.x < -80) palabra.x = width + 70;
-    if(palabra.y > height + 40) palabra.y = -40;
-    if(palabra.y < -45) palabra.y = height + 40;
+    if(palabra.x > width + 120) palabra.x = -120;
+    if(palabra.x < -130) palabra.x = width + 120;
+    if(palabra.y > height + 70) palabra.y = -70;
+    if(palabra.y < -80) palabra.y = height + 70;
 
     push();
+    translate(palabra.x, palabra.y);
+    rotate(palabra.giro + sin(frameCount * 0.025 + palabra.fase) * 0.12);
     textFont(palabra.fuente);
     textSize(palabra.tam);
     fill(255, 235, 185, palabra.alpha);
     stroke(255, 215, 120, 34);
     strokeWeight(1);
-    text(palabra.texto, palabra.x, palabra.y);
+    text(palabra.texto, 0, 0);
     pop();
   }
 }
@@ -400,8 +409,5 @@ function touchMoved(){
 }
 
 function windowResized(){
-
-  resizeCanvas(windowWidth, windowHeight);
-  crearLinksOcultos();
-
+  return false;
 }

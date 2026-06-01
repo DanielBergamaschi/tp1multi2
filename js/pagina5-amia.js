@@ -15,7 +15,7 @@ function preload(){
 
 function setup(){
   pixelDensity(1);
-  let canvas = createCanvas(windowWidth, windowHeight);
+  let canvas = createCanvas(360, 640);
   canvas.parent("canvasDiv");
   frameRate(24);
 
@@ -68,12 +68,14 @@ function crearMarcas(){
 }
 
 function crearFragmentos(){
+  fragmentos = [];
+
   for(let i = 0; i < 34; i++){
     fragmentos.push({
-      x: random(16, width - 16),
-      y: random(40, height - 80),
-      w: random(18, 82),
-      h: random(4, 28),
+      x: random(width * 0.04, width * 0.96),
+      y: random(height * 0.06, height * 0.90),
+      w: random(width * 0.05, width * 0.22),
+      h: random(4, height * 0.034),
       fase: random(TWO_PI),
       alpha: random(24, 105)
     });
@@ -108,8 +110,11 @@ function grillaArchivo(){
 }
 
 function simboloFracturado(){
+  const escala = min(width, height) / 360;
+
   push();
-  translate(width / 2, 284);
+  translate(width / 2, height * 0.42);
+  scale(escala);
   rotate(sin(frameCount * 0.012) * 0.03);
 
   noFill();
@@ -171,11 +176,11 @@ function marcasFlotantes(){
   textAlign(CENTER, CENTER);
 
   for(let i = 0; i < marcas.length; i++){
-    let y = (frameCount * 0.52 + i * 55) % 560 + 32;
-    let x = 52 + (i % 4) * 84 + sin(frameCount * 0.014 + i) * 8;
+    let y = (frameCount * 0.52 + i * height * 0.085) % (height * 0.88) + height * 0.05;
+    let x = width * 0.13 + (i % 4) * width * 0.25 + sin(frameCount * 0.014 + i) * width * 0.02;
 
     fill(255, 92);
-    textSize(9 + (i % 3));
+    textSize(max(9, min(width, height) * 0.026) + (i % 3));
     text(marcas[i], x, y);
   }
 }
@@ -255,8 +260,5 @@ function touchMoved(){
 }
 
 function windowResized(){
-
-  resizeCanvas(windowWidth, windowHeight);
-  crearLinksOcultos();
-
+  return false;
 }

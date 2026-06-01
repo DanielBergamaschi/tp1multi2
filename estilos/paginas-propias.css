@@ -3,24 +3,29 @@ body.pagina-celular {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
-  align-items: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   width: 100vw;
-  height: 100vh;
-  min-height: 100svh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
 }
 
 body.pagina-celular #canvasDiv {
-  width: 100vw;
-  height: 100vh;
-  height: 100svh;
-  overflow: hidden;
+  width: 360px;
+  max-width: 100vw;
+  height: auto;
+  margin: 0 auto;
+  touch-action: none;
 }
 
 body.pagina-celular canvas {
   display: block;
-  width: 100vw !important;
-  height: 100vh !important;
-  height: 100svh !important;
+  margin: 0 auto;
+  width: 360px;
+  max-width: 100vw;
+  height: auto;
+  touch-action: none;
 }
