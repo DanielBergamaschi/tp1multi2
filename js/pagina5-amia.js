@@ -41,6 +41,7 @@ function draw(){
   dibujarPulsos();
   marcasFlotantes();
   focoTactil();
+  textos();
 }
 
 function fondoVideo(){
@@ -196,6 +197,31 @@ function focoTactil(){
 
   stroke(255, 48);
   circle(focoX, focoY, 74 + sin(frameCount * 0.08) * 12);
+}
+
+function textos(){
+  push();
+  fill(255, 180);
+  textSize(10);
+  textFont("sans-serif");
+
+  let separacion = 300;
+  let velocidad = frameCount * 1;
+  let totalCopias = 5;
+  let loopTotal = totalCopias * separacion;
+  let coordenadas = "AMIA / Pasteur 633 / GMS: 34°36′07″S 58°23′58″O / Decimal: -34.60194, -58.39944";
+
+  for(let i = 0; i < totalCopias; i++){
+    let yPos = (velocidad + (i * separacion)) % loopTotal;
+
+    push();
+    translate(width - 15, yPos - separacion);
+    rotate(HALF_PI);
+    text(coordenadas, 0, 0);
+    pop();
+  }
+
+  pop();
 }
 
 function activarAudio(){

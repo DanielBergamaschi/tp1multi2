@@ -59,6 +59,7 @@ function draw(){
   dibujarDestellos();
   dibujarSellos();
   lenteInteractiva();
+  textos();
 }
 
 function fondoVideo(){
@@ -331,6 +332,31 @@ function lenteInteractiva(){
   stroke(255, 52);
   line(lenteX - 58, lenteY, lenteX + 58, lenteY);
   line(lenteX, lenteY - 58, lenteX, lenteY + 58);
+  pop();
+}
+
+function textos(){
+  push();
+  fill(255, 180);
+  textSize(10);
+  textFont("sans-serif");
+
+  let separacion = 300;
+  let velocidad = frameCount * 1;
+  let totalCopias = 5;
+  let loopTotal = totalCopias * separacion;
+  let coordenadas = "Congreso de la Nacion / GMS: 34°36′36″S 58°23′34″O / Decimal: -34.61000, -58.39278";
+
+  for(let i = 0; i < totalCopias; i++){
+    let yPos = (velocidad + (i * separacion)) % loopTotal;
+
+    push();
+    translate(width - 15, yPos - separacion);
+    rotate(HALF_PI);
+    text(coordenadas, 0, 0);
+    pop();
+  }
+
   pop();
 }
 

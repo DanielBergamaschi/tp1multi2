@@ -40,6 +40,7 @@ function draw(){
   ondasDeCarga();
   formulasMoviles();
   cursorCarga();
+  textos();
 }
 
 function fondoVideo(){
@@ -182,6 +183,31 @@ function cursorCarga(){
   noStroke();
   fill(255, 180);
   circle(puntoCarga.x, puntoCarga.y, 8);
+}
+
+function textos(){
+  push();
+  fill(255, 180);
+  textSize(10);
+  textFont("sans-serif");
+
+  let separacion = 300;
+  let velocidad = frameCount * 1;
+  let totalCopias = 5;
+  let loopTotal = totalCopias * separacion;
+  let coordenadas = "Facultad de Ingenieria UBA Las Heras / GMS: 34°35′19″S 58°23′48″O / Decimal: -34.58861, -58.39667";
+
+  for(let i = 0; i < totalCopias; i++){
+    let yPos = (velocidad + (i * separacion)) % loopTotal;
+
+    push();
+    translate(width - 15, yPos - separacion);
+    rotate(HALF_PI);
+    text(coordenadas, 0, 0);
+    pop();
+  }
+
+  pop();
 }
 
 function activarAudio(){
