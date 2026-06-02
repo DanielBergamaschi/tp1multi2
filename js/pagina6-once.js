@@ -14,6 +14,8 @@ let ventana_9;
 
 let bandera1 = false;
 
+let enlacePendiente = "";
+
 function preload(){
   
   edificio = loadImage('img/pagina6_once/edificios.png');
@@ -38,7 +40,6 @@ function setup() {
   //ropa.resize(60,120);
   
  
-  
   // fila 1 
   ventana_1 = createGraphics(60, 70);
   ventana_2 = createGraphics(60, 70);
@@ -106,7 +107,7 @@ noTint();
 
   cuadroFinal();
 }
-  
+   
 }
 
 
@@ -333,7 +334,37 @@ function textos() {
   
 }
 
+function mousePressed() {
+ 
+  if (bandera1) return; 
 
+  if (mouseX > 40 && mouseX < 100 && mouseY > 50 && mouseY < 120) {
+    enlacePendiente = "pagina5-amia.html";
+  } else if (mouseX > 151 && mouseX < 211 && mouseY > 50 && mouseY < 120) {
+    enlacePendiente = "pagina9-multimedia.html";
+  } else if (mouseX > 262 && mouseX < 322 && mouseY > 50 && mouseY < 120) {
+    enlacePendiente = "pagina4-logia.html";
+  } else if (mouseX > 40 && mouseX < 100 && mouseY > 450 && mouseY < 570) {
+    enlacePendiente = "pagina3-iglesia.html";
+  } else if (mouseX > 151 && mouseX < 211 && mouseY > 450 && mouseY < 570) {
+    enlacePendiente = "Pagina1-congreso.html";
+  } else if (mouseX > 262 && mouseX < 322 && mouseY > 450 && mouseY < 570) {
+    enlacePendiente = "pagina2-barolo.html";
+  }
+
+  if (enlacePendiente !== "") {
+    bandera1 = true;
+    setTimeout(viajarAPagina, 15000);
+  }
+}
+
+function viajarAPagina() {
+  if (enlacePendiente !== "") {
+    location.replace(enlacePendiente);
+  }
+}
+
+/*
 function mousePressed() {
 
 
@@ -345,21 +376,21 @@ function mousePressed() {
 
 
  // nexos();
-}
+}*/
 
 function cuadroFinal () {
 
             push();
-                stroke (255)
-                fill (0, 200)
-                rect (20, 20, 320, 550)
+                stroke (255);
+                fill (0, 250);
+                rect (20, 20, 320, 580);
             pop();
             push();
                 fill (255, 255);
                 textAlign (CENTER);
                 textFont ('Courier New');
                 textSize (20);
-                text ( "Oculta de la luz en las tinieblas de las cavernas primordiales..",
+                text ( "Ahí mismo, en ese escenario se gestaron las armas biológicas, la torre de Babel y otros motines. Y qué gustito la arrogancia, qué gustito el desafío, el privilegio de haber inventado el pecado, era necesario, era algo que había que inventar. Moisés bajó con sus tablas y trajo la ley, y dos minutos, dos minutos tardaron ellos en traer la trampa y el estraperlo, en idear las maneras para esquivar la represalia que caía con todo su peso sobre el atentado de la curiosidad.",
                      25, 25, 315, 615);
             pop();
 

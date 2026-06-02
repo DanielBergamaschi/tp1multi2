@@ -194,7 +194,12 @@ function touchStarted() {
 
   if (boton_nexo < nexo_radio) {
 
-    nexo();
+    //nexo();
+
+
+       bandera1 = true;
+
+      setTimeout(nexo, 10000)
 
   }
 
@@ -224,14 +229,14 @@ function cuadroFinal () {
             push();
                 stroke (255)
                 fill (0, 200)
-                rect (20, 20, 320, 550)
+                rect (20, 20, 320, 600)
             pop();
             push();
                 fill (255, 255);
-                textAlign (CENTER);
+                textAlign (CENTER, CENTER);
                 textFont ('Courier New');
                 textSize (20);
-                text ( "Oculta de la luz en las tinieblas de las cavernas primordiales..",
+                text ( "La tromba infernal, que no se detiene nunca, envuelve en sus torbellino a los espíritus; les hace dar vueltas continuamente, los agita y los molesta; cuando se encuentran ante la valla que los encierra, allí son los gritos, los llantos y los lamentos. y las blasfemias contra la virtud divina",
                      25, 25, 315, 615);
             pop();
 

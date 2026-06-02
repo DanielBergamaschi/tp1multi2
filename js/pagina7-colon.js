@@ -218,13 +218,15 @@ function nexos() {
 function mousePressed() {
   for (let i = 0; i < 4; i++) {
     let d = dist(mouseX, mouseY, botonesX[i], botonesY[i]);
-    
+
     if (d < radioBoton / 2) {
       bandera1 = true;
 
-      setTimeout(nexos, 15000);
+      setTimeout(() => {
+        location.replace(urls[i]);
+      }, 15000);
 
-      location.replace(urls[i]); 
+      break;
     }
   }
 }
@@ -240,10 +242,11 @@ function cuadroFinal () {
             push();
                 fill (255, 255);
                 textAlign (CENTER);
+      
                 textFont ('Courier New');
                 textSize (20);
-                text ( "Oculta de la luz en las tinieblas de las cavernas primordiales..",
-                     25, 25, 315, 615);
+                text ( "Cada hombre es una isla. Atrapado en sí mismo, emocionalmente aislado, incapaz de comunicarse, al hombre le horroriza la civilización, la gente, las ciudades, las situaciones que requieren capacidad para comprender y establecer relaciones con los demás",
+                     25, 80, 315, 615);
             pop();
 
 }
